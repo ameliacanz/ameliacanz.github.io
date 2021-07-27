@@ -30,10 +30,10 @@
 			}
 			div#loading > div#icon-loading > p#bg{
 				margin: 0;
-				font-size: 40px;
+				font-size: 63px;
 			}
-			#1{
-				text-size: 20px;
+			#a{
+				text-size: 10px;
 			}
 			div#content{
 				display: none;
@@ -54,7 +54,25 @@
 	<body onload="//document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
 		<div id="loading">
 			<div id="icon-loading">
-				<p id="bg">&lt; /&gt;<br><span id="1">Loading</span></p>
+				<p id="bg"><span id="satu" style="color: white;">&lt;</span> <span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
+				<script>
+					osksjx = document.querySelector("span#satu")
+					osksjz = document.querySelector("span#dua")
+					setInterval(async function (){
+						(function (){
+						setTimeout(async function (){
+							
+						})
+						})().then(()=>{
+						setTimeout(async function (){
+							
+						})
+							
+						})
+						
+					},800)
+				</script>
+				<p id="a">Loading</p>
 			</div>
 		</div>
 		<div id="content">
