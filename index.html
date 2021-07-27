@@ -61,20 +61,22 @@
 		</style>
 	</head>
 	<body onload="document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
-		<!--content-->
+		<!--loading page-->
+		<div id="loading">
+			<div id="icon-loading">
+				<p id="bg"><span id="satu" style="color: white;">&lt;</span><span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
+				<p id="a">loading </p>
+			</div>
+		</div>
+		<!--end of loading • start ofcontent-->
 		<div id="content">
 			<div id="footer" class="center display">
 				<audio id="iamnotangry" src="/assets/audio/Mashup_I'am_Not_Angry_Anymore_X_Tired_(_+_8_Audio_)(256k).mp3" controls="controls" ></audio>
 				<br>hadi-api
 			</div>
 		</div>
-		<!--end of content-->
-		<!--loading page-->
-		<div id="loading">
-			<div id="icon-loading">
-				<p id="bg"><span id="satu" style="color: white;">&lt;</span><span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
-				<p id="a">loading </p>
-				<script>
+		<!--end of content • start of script-->
+		<script>
 					jsjs = document.querySelector("p#a")
 					osksjz = document.querySelector("span#satu")
 					osksjx = document.querySelector("span#dua")
@@ -161,8 +163,5 @@
 					}
 					akjsjd()
 				</script>
-			</div>
-		</div>
-		<!--end of loading-->
 	</body>
 </html>
