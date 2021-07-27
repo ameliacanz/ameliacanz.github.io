@@ -54,28 +54,42 @@
 	<body onload="//document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
 		<div id="loading">
 			<div id="icon-loading">
-				<p id="bg"><span id="satu" style="color: white;">&lt;</span> <span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
+				<p id="bg"><span id="satu" style="color: white;">&lt;</span><span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
 				<p id="a">loading </p>
 				<script>
 					jsjs = document.querySelector("p#a")
 					osksjz = document.querySelector("span#satu")
 					osksjx = document.querySelector("span#dua")
-					setInterval(async function (){
-						jsjs.innerHTML = "loading "
+					function ossks(){
+						setTimeout(()=>{
+							jsjs.innerHTML = "loading "
+							ossks()
+						},1400)
+						setTimeout(()=>{
+							jsjs.innerHTML += "."
+						},1100)
+						setTimeout(()=>{
+							jsjs.innerHTML += "."
+						},800)
+						setTimeout(()=>{
+							jsjs.innerHTML += "."
+						},500)
+					}
+					ossks()
+					//setInterval(async function (){
+					async function akjsjd(){
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 65px;')
-							jsjs.innerHTML += "."
+							akjsjd()
 						},2400)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 64px;')
-							jsjs.innerHTML += "."
 						},2300)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 63px;')
 						},2200)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 62px;')
-							jsjs.innerHTML += "."
 						},2100)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 61px;')
@@ -83,58 +97,51 @@
 						
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: gray;font-size: 60px;')
-							jsjs.innerHTML = "loading "
 						},1900)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 61px;')
 						},1800)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 62px;')
-							jsjs.innerHTML += "."
 						},1700)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 63px;')
 						},1600)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 64px;')
-							jsjs.innerHTML += "."
 						},1500)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 65px;')
 						},1400)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 64px;')
-							jsjs.innerHTML += "."
 						},1300)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 63px;')
 						},1200)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 62px;')
-							jsjs.innerHTML = "loading "
 						},1100)
 						setTimeout(async function (){
 							osksjx.setAttribute('style','color: white;font-size: 61px;')
 						},1000)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: gray;font-size: 60px;')
-							jsjs.innerHTML += "."
 						},900)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 61px;')
 						},800)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 62px;')
-							jsjs.innerHTML += "."
 						},700)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 63px;')
 						},600)
 						setTimeout(async function (){
 							osksjz.setAttribute('style','color: white;font-size: 64px;')
-							jsjs.innerHTML += "."
 						},500)
-					},2350)
+					}
+					akjsjd()
 				</script>
 			</div>
 		</div>
