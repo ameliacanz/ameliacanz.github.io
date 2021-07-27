@@ -49,13 +49,27 @@
 				-o-background-size: cover;
 				background-size: cover;
 			}
+			.display{
+				display: block;
+			}
+			#footer{
+				margin: 20% auto auto auto;
+			}
+			div#footer > audio#iamnotangry {
+				background: none;
+			}
+			.center{
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body onload="document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
 		<!--content-->
 		<div id="content">
-			hai
-			<audio src="/assets/audio/Mashup_I'am_Not_Angry_Anymore_X_Tired_(_+_8_Audio_)(256k).mp3" controls="controls" ></audio>
+			<div id="footer" class="center display">
+				<audio id="iamnotangry" src="/assets/audio/Mashup_I'am_Not_Angry_Anymore_X_Tired_(_+_8_Audio_)(256k).mp3" controls="controls" ></audio>
+				<br>hadi-api
+			</div>
 		</div>
 		<!--end of content-->
 		<!--loading page-->
