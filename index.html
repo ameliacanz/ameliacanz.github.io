@@ -72,20 +72,14 @@
 				width: 13px;
 				height: 13px;
 			}
-			#loading{
-				width: 20px;
-				height: 20px;
-				background: white;
-			}
 		</style>
 	</head>
-	<body onload="//document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
+	<body onload="document.querySelector('div#loading').style.display='none';document.querySelector('div#content').style.display='block'">
 		<!--loading page-->
 		<div id="loading">
 			<div id="icon-loading">
 				<p id="bg"><span id="satu" style="color: white;">&lt;</span><span id="dua" style="color: gray;font-size: 60px;">\&gt;</span></p>
 				<p id="a">loading </p>
-				<br>
 			</div>
 		</div>
 		<!--end of loading • start ofcontent-->
