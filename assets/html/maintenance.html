@@ -12,6 +12,11 @@
 		}
 
 		body {
+			background: url('https://hadi-api.github.io/assets/image/icon.jpg') no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 			margin: 0;
 			padding: 0;
 			display: flex;
@@ -26,8 +31,11 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: 0px 20px;
 			max-width: 450px;
+			border-radius: 5px;
+			padding: 70px 20px 70px 20px;
+			background: rgba(0,0,0,0.2);
+			display: block;
 		}
 
 		.message__title {
@@ -102,6 +110,20 @@
 			left: 12px;
 			bottom: 12px;
 		}
+
+		.logo > a > img {
+			width: 35px;
+			height: 35px;
+		}
+
+		.logo > a > p {
+			position: fixed;
+			bottom: 19px;
+			left: 50px;
+			font-size: 15px;
+			color: #7F828B;
+		}
+
 	</style>
 	<base target=_parent />
 </head>
@@ -119,7 +141,7 @@
 		</p>
 	</div>
 	<div class=logo>
-		<a href="javascript:void(0);"><img src="https://hadi-api.github.io/assets/image/favicon.png" alt="logo" /></a>
+		<a href="javascript:void(0);"><img src="https://hadi-api.github.io/assets/image/favicon.png" alt="logo" /><p>hadi-api</p></a>
 	</div>
 </body>
 </html>
