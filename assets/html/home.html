@@ -583,7 +583,16 @@ Alerts Center
 <span class="text-success mr-2"><i class="fas fa-arrow-up" id="per">0,00%</i></span>
 <script>
 try{
-	var _0x1412=["\x4C\x49\x41\x54","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x70\x65\x72","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x76\x61\x6C\x75\x65","\x25","\x74\x68\x65\x6E","\x6A\x73\x6F\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x63\x6F\x75\x6E\x74\x61\x70\x69\x2E\x78\x79\x7A\x2F\x68\x69\x74\x2F\x68\x61\x64\x69\x2D\x61\x70\x69\x2D\x76\x69\x65\x77\x65\x72\x2F"];const viewer=document[_0x1412[1]](_0x1412[0]);const persen=document[_0x1412[1]](_0x1412[2]);fetch(_0x1412[8])[_0x1412[6]]((_0xbf23x3)=>{return _0xbf23x3[_0x1412[7]]()})[_0x1412[6]]((_0xbf23x3)=>{viewer[_0x1412[3]]= _0xbf23x3[_0x1412[4]];persen[_0x1412[3]]= _0xbf23x3[_0x1412[4]]/ 100+ _0x1412[5]})
+	//var _0x1412=["\x4C\x49\x41\x54","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x70\x65\x72","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x76\x61\x6C\x75\x65","\x25","\x74\x68\x65\x6E","\x6A\x73\x6F\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x63\x6F\x75\x6E\x74\x61\x70\x69\x2E\x78\x79\x7A\x2F\x68\x69\x74\x2F\x68\x61\x64\x69\x2D\x61\x70\x69\x2D\x76\x69\x65\x77\x65\x72\x2F"];const viewer=document[_0x1412[1]](_0x1412[0]);const persen=document[_0x1412[1]](_0x1412[2]);fetch(_0x1412[8])[_0x1412[6]]((_0xbf23x3)=>{return _0xbf23x3[_0x1412[7]]()})[_0x1412[6]]((_0xbf23x3)=>{viewer[_0x1412[3]]= _0xbf23x3[_0x1412[4]];persen[_0x1412[3]]= _0xbf23x3[_0x1412[4]]/ 100+ _0x1412[5]})
+	const viewer = document.getElementById('LIAT');
+	const persen = document.getElementById('per');
+	fetch('http://api.countapi.xyz/hit/hadi-api-viewer/')
+	.then(res => res.json())
+	.then(res => {
+		viewer.innerHTML = res.value;
+		persen.innerHTML = res.value/100+"%"
+	})
+	
 }catch(e){}
 	</script>
 	<span>from 100%</span>
