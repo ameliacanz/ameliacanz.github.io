@@ -826,7 +826,7 @@ try{
 								function musicplay(){
 									try{
 										this.list = ['https://youtu.be/iF3abb1mDFA']
-										fetch('http://hadi-api.herokuapp.com/api/ytaudio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.json()).then(async res=>{
+										axios.get('http://hadi-api.herokuapp.com/api/ytaudio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.data).then(async res=>{
 											await document.querySelector("audio#audioNotifikasi").setAttribute('src',res.result.download_audio)
 											this.teks = await `<==========• INFO •==========>\nTITLE: ${res.result.title}\nVIEWER: ${res.result.viewer}\nLIKE: ${res.result.like}\nDISLIKE: ${res.result.dislike}\n<=====• PUTAR SEKARANG? •=====>`
 											this.agree = await confirm(teks)
