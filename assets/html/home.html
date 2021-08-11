@@ -687,8 +687,8 @@ try{
 								qcountry = document.querySelector("div#country")
 								qtime = document.querySelector("div#timezone")
 								var ip,isp = "-"
-								axios.get('http://hadi-api.herokuapp.com/api/ip').then(res => {
-									res = res.data
+								fetch('http://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res => {
+									alert(res)
 									qisp.innerHTML = res.result.isp||"0.0.0.0"
 									qip.innerHTML = res.result.ip||"0.0.0.0"
 									qcountry.innerHTML = res.result.country||"0.0.0.0"
