@@ -21,6 +21,7 @@
 		<meta property="og:description" content="Free Rest Api">
 <meta property="og:image" content="http://hadi-api.github.io/assets/image/icon.jpg">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/androidstudio.min.css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <style>div#loading{
@@ -680,7 +681,20 @@ try{
 							<div id="timezone" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0.0.0.0</div>
 							<script>
 							try{
-								var _0x4f74=["\x64\x69\x76\x23\x69\x73\x70","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x64\x69\x76\x23\x69\x70","\x64\x69\x76\x23\x63\x6F\x75\x6E\x74\x72\x79","\x64\x69\x76\x23\x74\x69\x6D\x65\x7A\x6F\x6E\x65","\x2D","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x69\x73\x70","\x30\x2E\x30\x2E\x30\x2E\x30","\x71\x75\x65\x72\x79","\x63\x6F\x75\x6E\x74\x72\x79","\x74\x69\x6D\x65\x7A\x6F\x6E\x65","\x74\x68\x65\x6E","\x6A\x73\x6F\x6E","\x68\x74\x74\x70\x3A\x2F\x2F\x69\x70\x2D\x61\x70\x69\x2E\x63\x6F\x6D\x2F\x6A\x73\x6F\x6E\x2F"];qisp= document[_0x4f74[1]](_0x4f74[0]);qip= document[_0x4f74[1]](_0x4f74[2]);qcountry= document[_0x4f74[1]](_0x4f74[3]);qtime= document[_0x4f74[1]](_0x4f74[4]);var ip,isp=_0x4f74[5];fetch(_0x4f74[14])[_0x4f74[12]]((_0x1f19x3)=>{return _0x1f19x3[_0x4f74[13]]()})[_0x4f74[12]]((_0x1f19x3)=>{qisp[_0x4f74[6]]= _0x1f19x3[_0x4f74[7]]|| _0x4f74[8];qip[_0x4f74[6]]= _0x1f19x3[_0x4f74[9]]|| _0x4f74[8];qcountry[_0x4f74[6]]= _0x1f19x3[_0x4f74[10]]|| _0x4f74[8];qtime[_0x4f74[6]]= _0x1f19x3[_0x4f74[11]]|| _0x4f74[8]})
+								//var _0x4f74=["\x64\x69\x76\x23\x69\x73\x70","\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72","\x64\x69\x76\x23\x69\x70","\x64\x69\x76\x23\x63\x6F\x75\x6E\x74\x72\x79","\x64\x69\x76\x23\x74\x69\x6D\x65\x7A\x6F\x6E\x65","\x2D","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x69\x73\x70","\x30\x2E\x30\x2E\x30\x2E\x30","\x71\x75\x65\x72\x79","\x63\x6F\x75\x6E\x74\x72\x79","\x74\x69\x6D\x65\x7A\x6F\x6E\x65","\x74\x68\x65\x6E","\x6A\x73\x6F\x6E","\x68\x74\x74\x70\x3A\x2F\x2F\x69\x70\x2D\x61\x70\x69\x2E\x63\x6F\x6D\x2F\x6A\x73\x6F\x6E\x2F"];qisp= document[_0x4f74[1]](_0x4f74[0]);qip= document[_0x4f74[1]](_0x4f74[2]);qcountry= document[_0x4f74[1]](_0x4f74[3]);qtime= document[_0x4f74[1]](_0x4f74[4]);var ip,isp=_0x4f74[5];fetch(_0x4f74[14])[_0x4f74[12]]((_0x1f19x3)=>{return _0x1f19x3[_0x4f74[13]]()})[_0x4f74[12]]((_0x1f19x3)=>{qisp[_0x4f74[6]]= _0x1f19x3[_0x4f74[7]]|| _0x4f74[8];qip[_0x4f74[6]]= _0x1f19x3[_0x4f74[9]]|| _0x4f74[8];qcountry[_0x4f74[6]]= _0x1f19x3[_0x4f74[10]]|| _0x4f74[8];qtime[_0x4f74[6]]= _0x1f19x3[_0x4f74[11]]|| _0x4f74[8]})
+								qisp = document.querySelector("div#isp")
+								qip = document.querySelector("div#ip")
+								qcountry = document.querySelector("div#country")
+								qtime = document.querySelector("div#timezone")
+								var ip,isp = "-"
+								fetch('http://hadi-api.herokuapp.com/api/ip')
+								.then(res => res.json())
+								.then(res => {
+									qisp.innerHTML = res.result.isp||"0.0.0.0"
+									qip.innerHTML = res.result.ip||"0.0.0.0"
+									qcountry.innerHTML = res.result.country||"0.0.0.0"
+									qtime.innerHTML = res.result.timezone||"0.0.0.0"
+									})
 							}catch(e){}
 							</script>
 							</div>
