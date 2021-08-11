@@ -823,7 +823,7 @@ try{
 								/*[{       Function New        }]*/
 								function musicplay(){
 									try{
-										this.list = ['https://youtu.be/-pBb3E1tgt0','https://youtu.be/iF3abb1mDFA']
+										this.list = ['https://youtu.be/-pBb3E1tgt0','https://youtu.be/iF3abb1mDFA','https://youtu.be/3f8mHoFttk4']
 										axios.get('https://hadi-api.herokuapp.com/api/ytaudio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.data).then(async res=>{
 											await document.querySelector("audio#audioNotifikasi").setAttribute('src',res.result.download_audio)
 											this.teks = await `<==========• INFO •==========>\nTITLE: ${res.result.title}\nVIEWER: ${res.result.viewer}\nLIKE: ${res.result.like}\nDISLIKE: ${res.result.dislike}\n<=====• PUTAR SEKARANG? •=====>`
@@ -843,4 +843,4 @@ try{
 								</div>
 								</body>
 								</html>
-							<!--14:18-->
+							<!--16:14-->
