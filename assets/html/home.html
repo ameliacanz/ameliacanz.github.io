@@ -21,7 +21,7 @@
 		<meta property="og:description" content="Free Rest Api">
 <meta property="og:image" content="http://hadi-api.github.io/assets/image/icon.jpg">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/androidstudio.min.css">
-<!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <style>div#loading{
@@ -687,9 +687,9 @@ try{
 								qcountry = document.querySelector("div#country")
 								qtime = document.querySelector("div#timezone")
 								var ip,isp = "-"
-								fetch('http://hadi-api.herokuapp.com/api/ip')
-								.then(res => res.json())
+								axios.get('http://hadi-api.herokuapp.com/api/ip')
 								.then(res => {
+									res = res.data
 									qisp.innerHTML = res.result.isp||"0.0.0.0"
 									qip.innerHTML = res.result.ip||"0.0.0.0"
 									qcountry.innerHTML = res.result.country||"0.0.0.0"
