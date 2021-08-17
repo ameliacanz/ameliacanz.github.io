@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/androidstudio.min.css">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initHighlightingOnLoad();document.cookie ="tema=gradientredbg"</script>
 <style>div#loading{
 				z-index: 100;
 				position: fixed;
@@ -416,7 +416,7 @@ Tema Background
 </div>
 </div>
 <div>
-		Gradient Red Background
+		Gradient Red Background (default)
 		</div>
 		</button>
 <button class="dropdown-item d-flex align-items-center" onclick="bluebg()">
@@ -425,7 +425,7 @@ Tema Background
 </div>
 </div>
 <div>
-		Blue Background (default)
+		Blue Background
 		</div>
 		</button>
 <button class="dropdown-item d-flex align-items-center" onclick="greenbg()">
@@ -443,7 +443,7 @@ Tema Background
 		<li class="nav-item dropdown no-arrow mx-1">
 <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="alertsDropdown" role="button">
 	<i class="fas fa-bell fa-fw"></i>
-	<span class="badge badge-danger badge-counter">5+</span>
+	<span class="badge badge-danger badge-counter">4+</span>
 	</a>
 	<div aria-labelledby="alertsDropdown" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
 		<h6 class="dropdown-header">
@@ -546,14 +546,14 @@ Alerts Center
 									}
 									.popup > .popup-content > button#close:hover{
 										color: black;
-										border: 1px solid lime;
+										border: 1px solid black;
 										background: green;
 									}
 								</style>
 								<div class='popup'>
 									<div class='popup-content'>
-										<a href="javascript:void(0);"><img src="https://hadi-api.github.io/assets/image/icon.jpg" alt="image"></a><br>
-										WELCOME TO MY REST API
+										<a href="javascript:void(0);"><img src="//1.bp.blogspot.com/-ivngcGo615g/XWvQJ8_GrWI/AAAAAAAAE5U/EhtMLTzJ-SMfFpWF1qTMCftzFfSEBBCRACLcBGAs/s1920/bendera-indonesia.jpg" alt="image"></a><br>
+										DIRGAHAYU INDONESIA KE 76
 										<br><button id="close">OK</button>
 									</div>
 								</div>
@@ -850,7 +850,8 @@ try{
 								/*[{       Function New        }]*/
 								function musicplay(){
 									try{
-										this.list = ['https://youtu.be/-pBb3E1tgt0','https://youtu.be/iF3abb1mDFA','https://youtu.be/3f8mHoFttk4']
+										//this.list = ['https://youtu.be/-pBb3E1tgt0','https://youtu.be/iF3abb1mDFA','https://youtu.be/3f8mHoFttk4']
+										this.list = ["https://youtu.be/5rX1EF_VzeE"]
 										axios.get('https://hadi-api.herokuapp.com/api/ytaudio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.data).then(async res=>{
 											await document.querySelector("audio#audioNotifikasi").setAttribute('src',res.result.download_audio)
 											this.teks = await `<==========• INFO •==========>\nTITLE: ${res.result.title}\nVIEWER: ${res.result.viewer}\nLIKE: ${res.result.like}\nDISLIKE: ${res.result.dislike}\n<=====• PUTAR SEKARANG? •=====>`
