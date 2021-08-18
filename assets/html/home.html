@@ -176,6 +176,8 @@
 	<h6 class="collapse-header">Sosmed Features</h6>
 	<a class="collapse-item" target="_blank" href="/api/ytvideo?url=LINK YT"> Yt video downloader </a>
 	<a class="collapse-item" target="_blank" href="/api/ytaudio?url=LINK YT"> Yt audio downloader </a>
+	<a class="collapse-item" target="_blank" href="/api/yt2/video?url=LINK YT"> Yt video downloader 2</a>
+	<a class="collapse-item" target="_blank" href="/api/yt2/audio?url=LINK YT"> Yt audio downloader 2</a>
 	<a class="collapse-item" target="_blank" href="/api/aboutyt?url=LINK YT"> Yt scraper </a>
 	<a class="collapse-item" target="_blank" href="/api/ytplay?q=dj bahagia"> YtPlay </a>
 	<a class="collapse-item" target="_blank" href="/api/pinterest?q=loli&page=1"> Pinterest </a>
@@ -791,6 +793,8 @@ try{
 							<li class="mengetik"> Walpaper anime </li>
 							<li class="mengetik"> Yt audio downloader </li>
 							<li class="mengetik"> Yt video downloader</li>
+							<li class="mengetik"> Yt audio downloader 2</li>
+							<li class="mengetik"> Yt video downloader 2</li>
 							<li class="mengetik"> New Features Coming Soon </li>
 							<h6 id="total-menu"><script>document.querySelector('h6#total-menu').innerHTML = `<br>TOTAL MENU: ${document.querySelectorAll('a.collapse-item[target=_blank]').length}`</script></h6>
 							<h6><br>Api ini Tidak membutuhkan apiKey<br></h6>
@@ -854,9 +858,9 @@ try{
 									try{
 										//this.list = ['https://youtu.be/Ngq0omaP8Xg','https://youtu.be/-pBb3E1tgt0','https://youtu.be/iF3abb1mDFA','https://youtu.be/3f8mHoFttk4']
 										this.list = ["https://youtu.be/5rX1EF_VzeE","https://youtu.be/fmaiyhwEv90"]
-										axios.get('https://hadi-api.herokuapp.com/api/ytaudio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.data).then(async res=>{
-											await document.querySelector("audio#audioNotifikasi").setAttribute('src',res.result.download_audio)
-											this.teks = await `<==========• INFO •==========>\nTITLE: ${res.result.title}\nVIEWER: ${res.result.viewer}\nLIKE: ${res.result.like}\nDISLIKE: ${res.result.dislike}\n<=====• PUTAR SEKARANG? •=====>`
+										axios.get('https://hadi-api.herokuapp.com/api/yt2/audio?url='+this.list[Math.floor(Math.random() * this.list.length)]).then(res=>res.data).then(async res=>{
+											await document.querySelector("audio#audioNotifikasi").setAttribute('src',res.result.download_video)
+											this.teks = await `<==========• INFO •==========>\n\n\nTITLE: ${res.result.title}\n\n\n<=====• PUTAR SEKARANG? •=====>`
 											this.agree = await confirm(teks)
 										}).then(async ()=>{
 											if(this.agree==true){
