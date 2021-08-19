@@ -11,8 +11,7 @@
 	@import: url('https://hadi-api.github.io/assets/font/digital/index.css');
 		body {
 			background: #0E102F;
-			font-size: 1.2rem;
-			font-family: "SF Digital Readout Medium Oblique"!important;
+			font-family: normal;
 		}
 		div#card {
 			color: #64FB00;
@@ -69,7 +68,7 @@
 			<span id="run1"></span><span id="run1tik">|</span>
 		</div>
 		<div id="card">
-			<span id="run2"></span><span id="run2tik">|</span><br>
+			<span id="time" style="font-family: 'SF Digital Readout Medium Oblique'">00:00:00</span><span id="run2"></span><span id="run2tik">|</span><br>
 			<a href="javascript:void(0)"><video></video></a><br>
 			<div id="control">
 				<span id="title"></span><br>
@@ -84,6 +83,18 @@
 		a.querySelector('body').innerHTML = "<p style='color: black;font-size: 2rem'>{<br><tab></tab>creator: 'muhammad hadi firmansya',<br><tab></tab>status: 404,<br><tab></tab>msg: '[!] 404 not found<br>template html tidak tersedia pada perangkat anda'<br>}</p>";
 		
 	} else{
+		function duo(s){
+			return (s<10) ? '0'+s : s
+		}
+		time = a.querySelector('span#time')
+		setInterval(()=>{
+			teks_time = ""
+			detik = new Date().getSeconds();
+			menit = new Date().getMinutes();
+			jam = new Date().getHours();
+			teks_time += `${duo(jam)}:${duo(menit)}:${duo(detik)}`
+			time.innerHTML = teks_time
+		})
 		video = a.querySelector('video')
 		list = ["https://youtu.be/Ngq0omaP8Xg","https://youtu.be/Ew7I1C75rVw","https://youtu.be/KrT9pd6bVR4"];
 		random = list[Math.floor(Math.random() * list.length)]
@@ -139,7 +150,7 @@
 
 		jalan(true, 'run1',
 			`{[<br><tab></tab>]creator: 'muhammad hadi firmansya',[<br><tab></tab>]	status: 404,[<br><tab></tab>]	msg: '[[!]] 404 not found'[<br>]}`, 70, 100)
-		jalan(true, 'run2', `silahkan kembali ke dokumentasi api click [<a href='https://hadi-api.herokuapp.com/api'>here</a>]`, 50)
+		jalan(true, 'run2', `[<tab></tab>]silahkan kembali ke dokumentasi api click [<a href='https://hadi-api.herokuapp.com/api'>here</a>]`, 50)
 	}
 	</script>
 </body>
