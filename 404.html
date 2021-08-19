@@ -1,5 +1,176 @@
-{
-    creator: "M Hadi Firmansya",
-    status: "false",
-    msg: "[!] halaman yang anda tidak di temukan di server ini"
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" type="text/css" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+	<title>404 not found</title>
+	<style type="text/css" media="all">
+		body {
+			background: #0E102F;
+		}
+		span {
+			font-style: normal;
+		}
+		div#card {
+			font-style: normal;
+			color: #64FB00;
+			text-align: left;
+			padding: 1.2rem;
+			background: #1A1D43;
+			margin: 15px auto;
+			width: 18rem;
+			min-height: 10rem;
+			border-radius: 3px;
+			box-shadow: 3px 2px 13px black;
+		}
+		div#card > img {
+			max-width: 20rem;
+			max-height: 20rem;
+		}
+
+		video {
+			max-width: 18rem;
+			max-height: 18rem;
+			margin: 10px 0 0 0;
+			border: 1px solid black;
+		}
+		tab {
+			padding: 0 1rem 0 0;
+		}
+		a {
+			text-decoration: none;
+			color: #69FAFA;
+		}
+		a:hover {
+			color: blue;
+		}
+		div#control {
+			text-align: center;
+		}
+		.skip {
+			background: none;
+			color: white;
+			border: 0px;
+			font-size: 1.8rem;
+		}
+		.skip:hover {
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<!--<audio src="https://dl175.dlmate28.xyz/?file=M3R4SUNiN3JsOHJ6WWQ2a3NQS1Y5ZGlxVlZIOCtyZ01uY2MxakZzQUFMaEU3YTR1eE96ckpkMXNKclVHM3A2ckg5OGZ4VHZLWTluQUhBYWJ2NU50Q1VlRTVkdzR0RDdIOG9CcmNNZDFXUmo5aU8raTJEeG0ya0h6ZDlUSUtxaFhlWDhtNWhKRnlpbUcyT1RXdkZDcWxYQzk5QWpSU25aUDRCMFNiL2pSNVpvRzFtYkdKTHF2MjVVWG9obWM0NGxCNWZPY3B3bkp4YVk5c001OFRWQjlmWkZpeVovbnpmbnpxVTRMaVpJanpraTJvK2VyQjVZMEVwcVhkek4vTUNjYTRPN1FjaHdQbnlvVCtWem16cWhyNDNCYU42VnQrR3VtL09iZ2F6ckZMNVNrRnNQUmZienY4NFBxNitOazRoS1Q4ck9UeWNzR2hSNzZXOTZzRmc9PQ%3D%3D" autoplay="autoplay"></audio>
+				-->
+	<div id="card">
+		<span id="run1"></span><span id="run1tik">|</span>
+	</div>
+	<div id="card">
+		<span id="run2"></span><span id="run2tik">|</span><br>
+		<video></video><br>
+		<div id="control">
+			<span id="title"></span><br>
+			<button id="skip" class="skip fal fa-angle-double-left"></button>
+			<button id="pauseplay"></button><button id="skip2" class="skip fal fa-angle-double-right"></button>
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		a = document;
+
+		function tok(id) {
+			setTimeout(()=> {
+				a.querySelector(id+'tik').setAttribute('style', 'color: rgba(0,0,0,0)')
+				tok(id)
+			}, 700)
+			setTimeout(()=> {
+				a.querySelector(id+'tik').setAttribute('style', 'color: white')
+			}, 400)
+		}
+
+		function wh(id) {
+			a.querySelector(id+'tik').setAttribute('style', 'color: white')
+		}
+
+		function plit(value) {
+			hasil = []
+			jml = value.length;
+			for (var e = 0; e < jml; e++) {
+				hasil.push(value[e])
+			}
+			return JSON.stringify(hasil)
+		}
+
+		function jalan(corsor,id, value, interval, newlineinterval) {
+			ev = "";
+			nilai = 0;
+			value = value.trim()
+			jml = value.length;
+			for (var e = 0; e < jml; e++) {
+				if (value[e] == "[") {
+					ev += `setTimeout(()=>{${corsor ? 'wh("span#'+id+'");' : ''}a.querySelector('span#${id}').innerHTML += "${value.slice(e += 1).split(']')[0]}"},${(value.slice(e += 1).split(']')[0].includes("br")) ? nilai += newlineinterval: nilai += interval});`
+					e += value.slice(e).split(']')[0].length
+				} else {
+					ev += `setTimeout(()=>{${corsor ? 'wh("span#'+id+'");': ""}a.querySelector('span#${id}').innerHTML += "${value[e] == `
+					` ? "<br>": value[e]}"
+					},${value[e] == `
+					` ? nilai += newlineinterval: nilai += interval});`
+				}
+			}
+			corsor ? tok('span#'+id) : ""
+			eval(ev);
+			ev = "";
+		}
+
+		video = a.querySelector('video')
+		fetch("https://hadi-api.herokuapp.com/api/yt2/video?url=https://youtu.be/Ngq0omaP8Xg").then(res=>res.json()).then(res=> {
+			video.setAttribute("src", res.result.download_video || "Null");
+			jalan(false,'title',res.result.title,90)
+			video.autoplay = true
+		})
+
+pauseorplay = a.querySelector('button#pauseplay')
+if(video.paused) {
+	pauseorplay.setAttribute('class','skip fal fa-pause-circle')
 }
+video.onended = function (){
+	pauseorplay.setAttribute('class','skip fal fa-play-circle')
+}
+video.onpause = function (){
+	pauseorplay.setAttribute('class','skip fal fa-play-circle')
+}
+pauseorplay.onclick =async function () {
+	if(video.paused) {
+		pauseorplay.setAttribute('style','color: black')
+		await video.play()
+		pauseorplay.setAttribute('class','skip fal fa-pause-circle')
+		pauseorplay.setAttribute('style','color: white')
+	} else {
+		pauseorplay.setAttribute('style','color: black')
+		await video.pause()
+		pauseorplay.setAttribute('class','skip fal fa-play-circle')
+		pauseorplay.setAttribute('style','color: white')
+	}
+}
+
+		skp1 = a.querySelector('button#skip2')
+		skp1.onclick = function () {
+			video.currentTime += 10
+			setTimeout(()=>{
+				skp1.setAttribute('style','color: white')
+			},400)
+		}
+		skp2 = a.querySelector('button#skip')
+		skp2.onclick = function () {
+			video.currentTime -= 10
+			if(video.currentTime < 0) video.currentTime = 0
+			setTimeout(()=>{
+				skp2.setAttribute('style','color: white')
+			},400)
+		}
+
+		jalan(true,'run1',
+			`{[<br><tab></tab>]creator: 'muhammad hadi firmansya',[<br><tab></tab>]	status: 404,[<br><tab></tab>]	msg: '[[!]] 404 not found'[<br>]}`, 70, 100)
+		jalan(true,'run2', `silahkan kembali ke dokumentasi api click [<a href='https://hadi-api.herokuapp.com/api'>here</a>]`, 50)
+	</script>
+</body>
+</html>
