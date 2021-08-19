@@ -138,16 +138,19 @@ video.onended = function (){
 video.onpause = function (){
 	pauseorplay.setAttribute('class','skip fal fa-play-circle')
 }
+video.onplay = function (){
+	pauseorplay.setAttribute('class','skip fal fa-pause-circle')
+}
 pauseorplay.onclick =async function () {
 	if(video.paused) {
 		pauseorplay.setAttribute('style','color: black')
 		await video.play()
-		pauseorplay.setAttribute('class','skip fal fa-pause-circle')
+		//pauseorplay.setAttribute('class','skip fal fa-pause-circle')
 		pauseorplay.setAttribute('style','color: white')
 	} else {
 		pauseorplay.setAttribute('style','color: black')
 		await video.pause()
-		pauseorplay.setAttribute('class','skip fal fa-play-circle')
+		//pauseorplay.setAttribute('class','skip fal fa-play-circle')
 		pauseorplay.setAttribute('style','color: white')
 	}
 }
