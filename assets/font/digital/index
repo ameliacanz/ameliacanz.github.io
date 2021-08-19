@@ -1,0 +1,15 @@
+@font-face {
+
+	font-family: "digital";	src: url("137606d2dd14c5e7fec91381a1d38d97.eot"); /* IE9*/
+
+	src: url("./137606d2dd14c5e7fec91381a1d38d97.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+
+	url("./137606d2dd14c5e7fec91381a1d38d97.woff2") format("woff2"), /* chrome、firefox */
+
+	url("./137606d2dd14c5e7fec91381a1d38d97.woff") format("woff"), /* chrome、firefox */
+
+	url("./137606d2dd14c5e7fec91381a1d38d97.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+
+	url("./137606d2dd14c5e7fec91381a1d38d97.svg#SF Digital Readout Medium Oblique") format("svg"); /* iOS 4.1- */
+
+}
