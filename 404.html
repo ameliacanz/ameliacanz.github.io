@@ -129,8 +129,7 @@
 			pauseorplay.setAttribute('class', 'skip fal fa-pause-circle')
 		}
 		video.onload = async function () {
-			await video.play()
-			await video.play()
+			await video.pause()
 			await video.play()
 		}
 		video.onended = function () {
