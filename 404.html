@@ -8,9 +8,7 @@
 	<style type="text/css" media="all">
 		body {
 			background: #0E102F;
-		}
-		span {
-			font-style: normal;
+			font-family: normal;
 		}
 		div#card {
 			font-style: normal;
@@ -60,8 +58,6 @@
 	</style>
 </head>
 <body>
-	<!--<audio src="https://dl175.dlmate28.xyz/?file=M3R4SUNiN3JsOHJ6WWQ2a3NQS1Y5ZGlxVlZIOCtyZ01uY2MxakZzQUFMaEU3YTR1eE96ckpkMXNKclVHM3A2ckg5OGZ4VHZLWTluQUhBYWJ2NU50Q1VlRTVkdzR0RDdIOG9CcmNNZDFXUmo5aU8raTJEeG0ya0h6ZDlUSUtxaFhlWDhtNWhKRnlpbUcyT1RXdkZDcWxYQzk5QWpSU25aUDRCMFNiL2pSNVpvRzFtYkdKTHF2MjVVWG9obWM0NGxCNWZPY3B3bkp4YVk5c001OFRWQjlmWkZpeVovbnpmbnpxVTRMaVpJanpraTJvK2VyQjVZMEVwcVhkek4vTUNjYTRPN1FjaHdQbnlvVCtWem16cWhyNDNCYU42VnQrR3VtL09iZ2F6ckZMNVNrRnNQUmZienY4NFBxNitOazRoS1Q4ck9UeWNzR2hSNzZXOTZzRmc9PQ%3D%3D" autoplay="autoplay"></audio>
-					-->
 	<div id="card">
 		<span id="run1"></span><span id="run1tik">|</span>
 	</div>
@@ -131,6 +127,9 @@
 		pauseorplay = a.querySelector('button#pauseplay')
 		if (video.paused) {
 			pauseorplay.setAttribute('class', 'skip fal fa-pause-circle')
+		}
+		video.onload = async function () {
+			await video.play()
 		}
 		video.onended = function () {
 			pauseorplay.setAttribute('class', 'skip fal fa-play-circle')
