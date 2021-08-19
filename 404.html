@@ -131,6 +131,7 @@
 		video.onload = async function () {
 			await video.pause()
 			await video.play()
+			await video.currentTime = 1
 		}
 		video.onended = function () {
 			pauseorplay.setAttribute('class', 'skip fal fa-play-circle')
