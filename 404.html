@@ -17,7 +17,7 @@
 			text-align: left;
 			padding: 1.2rem;
 			background: #1A1D43;
-			margin: 15px auto;
+			margin: 1.5rem auto;
 			width: 18rem;
 			min-height: 10rem;
 			border-radius: 3px;
@@ -68,7 +68,7 @@
 		</div>
 		<div id="card">
 			<span id="run2"></span><span id="run2tik">|</span><br>
-			<video></video><br>
+			<a href="javascript:void(0)"><video></video></a><br>
 			<div id="control">
 				<span id="title"></span><br>
 				<button id="skip" class="skip fal fa-angle-double-left"></button>
@@ -77,21 +77,24 @@
 		</div>
 	</div>
 	<script type="text/javascript" charset="utf-8">
+	if(/x11|win64|intel|windows/i.test(navigator.userAgent.toLowerCase())) {
+		a.querySelector('body').style.background = "white";
+		a.querySelector('body').innerHTML = "<p style='color: black;font-size: 2rem'>{<br><tab></tab>creator: 'muhammad hadi firmansya',<br><tab></tab>status: 404,<br><tab></tab>msg: '[!] 404 not found<br>template html tidak tersedia pada perangkat anda'<br>}</p>";
+		
+	} else{
 		video = a.querySelector('video')
 		fetch("https://hadi-api.herokuapp.com/api/yt2/video?url=https://youtu.be/Ngq0omaP8Xg").then(res=>res.json()).then(res=> {
 			video.setAttribute("src", res.result.download_video || "Null");
+			video.setAttribute("poster",res.result.thumb)
 			jalan(false, 'title', res.result.title, 90)
-			video.autoplay = true
+			video.autoplay = false
 		})
 
 		pauseorplay = a.querySelector('button#pauseplay')
 		if (video.paused) {
+			pauseorplay.setAttribute('class', 'skip fal fa-play-circle')
+		}else {
 			pauseorplay.setAttribute('class', 'skip fal fa-pause-circle')
-		}
-		video.onload = async function () {
-			await video.pause()
-			await video.play()
-			video.currentTime = await 1
 		}
 		video.onended = function () {
 			pauseorplay.setAttribute('class', 'skip fal fa-play-circle')
@@ -133,6 +136,7 @@
 		jalan(true, 'run1',
 			`{[<br><tab></tab>]creator: 'muhammad hadi firmansya',[<br><tab></tab>]	status: 404,[<br><tab></tab>]	msg: '[[!]] 404 not found'[<br>]}`, 70, 100)
 		jalan(true, 'run2', `silahkan kembali ke dokumentasi api click [<a href='https://hadi-api.herokuapp.com/api'>here</a>]`, 50)
+	}
 	</script>
 </body>
 </html>
