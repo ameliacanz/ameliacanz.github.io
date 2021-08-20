@@ -69,7 +69,7 @@
 		</div>
 		<div id="card">
 			<span id="time" style="font-family: 'SF Digital Readout Medium Oblique'">00:00:00</span><span id="run2"></span><span id="run2tik">|</span><br>
-			<a id="source" href="javascript:void(0)" alt="null"><video></video></a><br>
+			<a id="source" href="javascript:void(0)" alt="null.mp4"><video></video></a><br>
 			<div id="control">
 				<span id="title"></span><br>
 				<button id="skip" class="skip fal fa-angle-double-left"></button>
@@ -103,7 +103,7 @@
 			video.setAttribute("src", res.result.download_video || "Null");
 			video.setAttribute("poster",res.result.thumb)
 			source.setAttribute('href',random)
-			source.setAttribute('alt',res.result.title)
+			source.setAttribute('alt',`${res.result.title.replace(/ /g,"_")}.mp4`)
 			jalan(false, 'title', res.result.title, 90)
 			video.autoplay = false
 		})
