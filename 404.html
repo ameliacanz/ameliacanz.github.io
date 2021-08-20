@@ -69,7 +69,7 @@
 		</div>
 		<div id="card">
 			<span id="time" style="font-family: 'SF Digital Readout Medium Oblique'">00:00:00</span><span id="run2"></span><span id="run2tik">|</span><br>
-			<a href="javascript:void(0)"><video></video></a><br>
+			<a id="source" href="javascript:void(0)"><video></video></a><br>
 			<div id="control">
 				<span id="title"></span><br>
 				<button id="skip" class="skip fal fa-angle-double-left"></button>
@@ -96,11 +96,14 @@
 			time.innerHTML = teks_time
 		})
 		video = a.querySelector('video')
+		source = a.querySelector('a#source')
 		list = ["https://youtu.be/Ngq0omaP8Xg","https://youtu.be/Ew7I1C75rVw","https://youtu.be/KrT9pd6bVR4"];
 		random = list[Math.floor(Math.random() * list.length)]
 		fetch("https://hadi-api.herokuapp.com/api/yt2/video?url="+random).then(res=>res.json()).then(res=> {
 			video.setAttribute("src", res.result.download_video || "Null");
 			video.setAttribute("poster",res.result.thumb)
+			source.setAttribute('href',random)
+			source.setAttribute('alt',res.result.title)
 			jalan(false, 'title', res.result.title, 90)
 			video.autoplay = false
 		})
