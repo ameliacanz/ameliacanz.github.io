@@ -48,6 +48,10 @@
 			#a{
 				text-size: 10px;
 			}
+			#disable {
+				pointer-events: none;
+				cursor: default;
+			}
 </style>
 </head>
 <body id="page-top" onload="document.querySelector('div#loading').style.display='none';pop()">
@@ -350,7 +354,7 @@
 	<div class="bg-white py-2 collapse-inner rounded">
 		<h6 class="collapse-header">Nulis Features</h6>
 		<a class="collapse-item" target="_blank" href="/api/nulis?teks=mr.hadi">Nulis</a>
-		<a class="collapse-item" disable="disable" target="_blank" href="/api/nulis2?teks=Nulis2 cretor: m hadi firmansya">Nulis2 (repair)</a>
+		<a class="collapse-item" id="disable" href="/api/nulis2?teks=Nulis2 cretor: m hadi firmansya">Nulis2 (repair)</a>
 		<a class="collapse-item" target="_blank" href="/api/card/welcome">Welcome</a>
 		<a class="collapse-item" target="_blank" href="/api/card/goodbye">Goodbye</a>
 		<a class="collapse-item" target="_blank" href="/api/card/welcome2">Welcome2</a>
