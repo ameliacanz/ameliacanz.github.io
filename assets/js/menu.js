@@ -594,7 +594,7 @@ function time(time){
 			return `<small>${minggu_str} weeks</small>`;
 		}
 		else if(minggu > 52.1428571 && minggu_str > 7){
-			return `a few years ago`;
+			return `<small>a few years ago</small>`;
 		}
 		else if(detik < 60 && detik_str > 0){
 			return `<small>${detik_str} sec</small>`;
