@@ -551,7 +551,7 @@ for (var e of item_list) {
 	</p>
 	</a>
 	<ul class="nav nav-treeview">
-	$item
+	%item$
 	</ul>
 	</li>
 	`;
@@ -568,7 +568,7 @@ for (var e of item_list) {
 		</li>`;
 	}
 
-	item_fc.innerHTML += coder.replace('$item', item_coder);
+	item_fc.innerHTML += coder.replace('%item$', item_coder);
 }
 information = document.querySelector('#information');
 repeatinfo = setInterval(function() {
