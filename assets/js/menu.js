@@ -619,7 +619,7 @@ time3 = document.querySelector('#time3');
 time4 = document.querySelector('#time4');
 
 setInterval(function() {
-	time1.innerHTML = time(1629965374861).text;
+	time1.innerHTML = time(1629965374861);
 	time2.innerHTML = time(1629965441552);
 	time3.innerHTML = time(1629965450784);
 	time4.innerHTML = time(1629965459739);
