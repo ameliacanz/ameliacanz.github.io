@@ -590,22 +590,22 @@ function time(time){
 		hari_str = Number(String(hari).split('.')[0]);
 		minggu_str = Number(String(minggu).split('.')[0]);
 		
-		if(minggu_str > 0 &&minggu_str < 7){
+		if(minggu_str > 0 &&minggu_str < 8){
 			return `<small>${minggu_str} weeks</small>`;
 		}
 		else if(minggu > 52.1428571 && minggu_str > 7){
 			return `<small>a few years ago</small>`;
 		}
-		else if(detik < 60 && detik_str > 0){
+		else if(detik < 61 && detik_str > 0){
 			return `<small>${detik_str} sec</small>`;
 		}
-		else if(menit < 60 && menit_str > 0){
+		else if(menit < 61 && menit_str > 0){
 			return `<small>${menit_str} mins</small>`;
 		}
-		else if(jam < 24 &&	jam_str > 0){
+		else if(jam < 25 &&	jam_str > 0){
 			return `<small>${jam_str} hours</small>`;
 		}
-		else if(hari < 7 && hari_str > 0){
+		else if(hari < 8 && hari_str > 0){
 			return `<small>${hari_str} day</small>`;
 		}
 		else{
