@@ -577,7 +577,6 @@ repeatinfo = setInterval(function() {
 }, 10);
 
 function time(time){
-	return new Promise((resolve,reject)=>{
 		time2 = new Date().getTime();
 		msec = time2 - Number(time);
 		detik = msec/1000;
@@ -592,27 +591,26 @@ function time(time){
 		minggu_str = Number(String(minggu).split('.')[0]);
 		
 		if(minggu_str > 0 &&minggu_str < 7){
-			resolve(`<small>${minggu_str} weeks</small>`);
+			return `<small>${minggu_str} weeks</small>`;
 		}
 		else if(minggu > 52.1428571 && minggu_str > 7){
-			resolve(`a few years ago`);
+			return `a few years ago`;
 		}
 		else if(detik < 60 && detik_str > 0){
-			resolve(`<small>${detik_str} sec</small>`);
+			return `<small>${detik_str} sec</small>`;
 		}
 		else if(menit < 60 && menit_str > 0){
-			resolve(`<small>${menit_str} mins</small>`);
+			return `<small>${menit_str} mins</small>`;
 		}
 		else if(jam < 24 &&	jam_str > 0){
-			resolve(`<small>${jam_str} hours</small>`);
+			return `<small>${jam_str} hours</small>`;
 		}
 		else if(hari < 7 && hari_str > 0){
-			resolve(`<small>${hari_str} day</small>`);
+			return `<small>${hari_str} day</small>`;
 		}
 		else{
-			resolve(`<small>${hari_str} day</small>`);
+			return `<small>${hari_str} day</small>`;
 		}
-	});
 }
 
 time1 = document.querySelector('#time');
@@ -621,7 +619,7 @@ time3 = document.querySelector('#time3');
 time4 = document.querySelector('#time4');
 
 setInterval(function() {
-	time1.innerHTML = time(1629965374861);
+	time1.innerHTML = time(1629965374861).text;
 	time2.innerHTML = time(1629965441552);
 	time3.innerHTML = time(1629965450784);
 	time4.innerHTML = time(1629965459739);
