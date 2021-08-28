@@ -4,6 +4,8 @@ item_msg = document.querySelector('#notify');
 tag_pengunjung = document.querySelector('span#pengunjung_length');
 tag_cpu = document.querySelector('span#cpu_usage');
 tag_clock = document.querySelector('span#clock');
+tag_battery_status = document.querySelector('small#battery_status');
+tag_battery_level = document.querySelector('span#battery_level');
 
 //-- menu documentation
 for (var e of item_list) {
@@ -122,7 +124,7 @@ eval(timingeval);
 
 //-- clock
 function duo(s) {
-	return s < 10 ? "0"+s:s;
+	return s < 10 ? "0"+s: s;
 }
 
 setInterval(function() {
@@ -131,23 +133,35 @@ setInterval(function() {
 	menit = duo(new Date().getMinutes());
 	detik = duo(new Date().getSeconds());
 
-if(jam >= 19){
-	clock_string = 'malam';
-} else if(jam >= 18){
-	clock_string = 'petang';
-} else if(jam >= 15){
-	clock_string = 'Sore';
-} else if(jam >= 10){
-	clock_string = 'Siang';
-} else if(String(jam) >= "05"){
-	clock_string = 'Pagi';
-} else if(String(jam) >= "03"){
-	clock_string = 'subuh';
-} else if(String(jam) >= "00"){
-	clock_string = 'dini hari';
-} else {
-	clock_string = 'hai bang';
-}
+	if (jam >= 19) {
+		clock_string = 'malam';
+	} else if (jam >= 18) {
+		clock_string = 'petang';
+	} else if (jam >= 15) {
+		clock_string = 'Sore';
+	} else if (jam >= 10) {
+		clock_string = 'Siang';
+	} else if (String(jam) >= "05") {
+		clock_string = 'Pagi';
+	} else if (String(jam) >= "03") {
+		clock_string = 'subuh';
+	} else if (String(jam) >= "00") {
+		clock_string = 'dini hari';
+	} else {
+		clock_string = 'hai bang';
+	}
 
 	tag_clock.innerHTML = `${jam}:${menit}:${detik} <small>${clock_string}</small>`;
 }, 10);
+
+//-- Battery
+battery_ = navigator.getBattery();
+tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
+battery_.onchargingchange(function () {
+	battery_ = navigator.getBattery();
+	tag_battery_status.innerHTML = battery_.charging;
+});
+battery_.onlevelchange(function () {
+	battery_ = navigator.getBattery();
+	tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
+});
