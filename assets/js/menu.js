@@ -636,6 +636,8 @@ for (var e = 0;e < message_list;e++){
 msg_teks += `<div class="dropdown-divider"></div>
 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>`;
 
+item_msg.innerHTML = msg_teks;
+
 timingset = document.querySelectorAll('span#time');
 timingeval = `setInterval(function() {`;
 
