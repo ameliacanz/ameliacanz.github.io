@@ -156,6 +156,7 @@ setInterval(function() {
 
 //-- Battery
 setInterval(function() {
-	navigator.getBattery().then(batter=>{battery=batter});
-	tag_battery_level.innerHTML = `${battery.level.split('.')[1]}% <small id="battery_status">${battery.charging ? 'discharging':'charging'}</small>`;
+	navigator.getBattery().then(battery=> {
+		tag_battery_level.innerHTML = `${String(battery.level).split('.')[1]}% <small id="battery_status">${battery.charging ? 'charging': 'discharging'}</small>`;
+	});
 }, 10);
