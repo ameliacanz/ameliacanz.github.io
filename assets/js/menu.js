@@ -125,7 +125,7 @@ function duo(s) {
 	return s < 10 ? "0"+s:s;
 }
 
-setTimeout(function() {
+setInterval(function() {
 
 	jam = duo(new Date().getHours());
 	menit = duo(new Date().getMinutes());
