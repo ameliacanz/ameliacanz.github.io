@@ -2,6 +2,7 @@
 item_fc = document.querySelector('[data-widget=treeview]');
 item_msg = document.querySelector('#notify');
 tag_pengunjung = document.querySelector('span#pengunjung_length');
+tag_cpu = document.querySelector('span#cpu_usage');
 
 //-- menu documentation
 for (var e of item_list) {
@@ -39,6 +40,11 @@ information = document.querySelector('#information');
 repeatinfo = setInterval(function() {
 	information.innerHTML = `<b>Browser CodeName:</b> ${navigator.appCodeName}<br><b>Browser Name:</b> ${navigator.appName}<br><b>Cookies Enabled:</b> ${navigator.cookieEnabled}<br><b>Browser Online:</b> ${navigator.onLine}<br><b>Platform:</b> ${navigator.platform} <br>
 	<b>User-Agent:</b> ${navigator.userAgent} <br><b>Time: </b> ${new Date()}`;
+}, 10);
+
+//-- CPU Usage detection
+setInterval(function() {
+	tag_cpu.innerHTML = `${navigator.hardwareConcurrency} <small>%</small>`;
 }, 10);
 
 //-- pengunjung visitor length
