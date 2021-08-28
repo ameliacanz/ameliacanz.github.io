@@ -629,11 +629,12 @@ for (var e = 0;e > message_list;e++){
 						<a href="#" class="dropdown-item">
 							<i class="${message_list[e].icon} mr-2"></i> ${message_list[e].title}
 							<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing}"></span>
-						</a><!--$item-->`;
+						</a>`;
 }
-msg_ = msg_.replace('$jumlah',message_list.length);
+msg = msg.replace('<!--$item-->',msg_);
+msg = msg.replace('$jumlah',message_list.length);
 
-item_msg = msg_;
+item_msg = msg;
 
 timingset = document.querySelectorAll('span#time');
 timingeval = `setInterval(function() {`;
