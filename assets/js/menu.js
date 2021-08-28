@@ -542,7 +542,7 @@ item_list = [{
 	}];
 message_list = [
 	{
-		icon: 'fas fa-file-code mr-2',
+		icon: 'fas fa-file-code',
 		title: 'new HTML template',
 		timing: '1630126462720'
 	}
