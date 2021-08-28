@@ -99,7 +99,7 @@ msg_ = ``;
 for (var e = 0; e < message_list.length; e++) {
 	msg_ += `<div class="dropdown-divider"></div>
 	<a href="#" class="dropdown-item">
-	<i class="${message_list[e].icon.trim()} mr-2"></i> ${message_list[e].title.length > 18 ? `<small>${message_list[e].title.trim()}</small>`:`${message_list[e].title.trim()}`}
+	<i class="${message_list[e].icon.trim()} mr-2"></i> ${message_list[e].title.length > 17 ? `<small>${message_list[e].title.trim()}</small>`:`${message_list[e].title.trim()}`}
 	<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing.trim()}"></span>
 	</a>`;
 }
