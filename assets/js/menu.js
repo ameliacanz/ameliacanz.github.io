@@ -156,7 +156,7 @@ setInterval(function() {
 
 //-- Battery
 navigator.getBattery().then(battery=> {
-	tag_battery_level.innerHTML = `${battery.level}% <small id="battery_status">${battery.charging}</small>`;
+	tag_battery_level.innerHTML = `${battery.level}% <small id="battery_status">${battery.charging ? 'discharging':'charging'}</small>`;
 	battery.onchargingchange = function () {
 		navigator.getBattery().then(battery_=> {
 			tag_battery_status.innerHTML = battery_.charging;
