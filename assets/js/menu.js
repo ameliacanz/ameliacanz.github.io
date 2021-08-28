@@ -620,20 +620,20 @@ function time(time){
 			return `<small>${hari_str} day</small>`;
 		}
 }
-
-item_msg.innerHTML = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span><!--$item--><div class="dropdown-divider"></div>
+msg = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span><!--$item--><div class="dropdown-divider"></div>
 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>`;
+msg_ = ``;
 
-for (var e = 0;e < message_list;e++){
-	item_msg.innerHTML = item_msg.innerHTML.replace(`<!--$item-->`,`<div class="dropdown-divider"></div>
+for (var e = 0;e > message_list;e++){
+	msg_ += `<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item">
 							<i class="${message_list[e].icon} mr-2"></i> ${message_list[e].title}
 							<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing}"></span>
-						</a><!--$item-->`);
+						</a><!--$item-->`;
 }
-item_msg.innerHTML = item_msg.innerHTML.replace('$jumlah',message_list.length);
+msg_ = msg_.replace('$jumlah',message_list.length);
 
-item_msg.innerHTML = msg_teks;
+item_msg = msg_;
 
 timingset = document.querySelectorAll('span#time');
 timingeval = `setInterval(function() {`;
