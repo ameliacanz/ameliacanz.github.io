@@ -636,6 +636,7 @@ msg = msg.replace('$jumlah',message_list.length);
 
 item_msg.innerHTML = msg;
 
+document.querySelector('span#notify_length').innerHTML = message_list.length;
 timingset = document.querySelectorAll('span#time');
 timingeval = `setInterval(function() {`;
 
