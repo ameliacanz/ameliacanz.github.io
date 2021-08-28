@@ -157,11 +157,11 @@ setInterval(function() {
 //-- Battery
 battery_ = navigator.getBattery();
 tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
-battery_.onchargingchange(function () {
+battery_.onchargingchange = function () {
 	battery_ = navigator.getBattery();
 	tag_battery_status.innerHTML = battery_.charging;
-});
-battery_.onlevelchange(function () {
+};
+battery_.onlevelchange = function () {
 	battery_ = navigator.getBattery();
 	tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
-});
+};
