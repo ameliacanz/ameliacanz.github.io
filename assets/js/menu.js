@@ -45,13 +45,13 @@ repeatinfo = setInterval(function() {
 if (localStorage.getItem('Pengunjung')) {
 	setInterval(function() {
 		fetch("https://api.countapi.xyz/get/hadi-api-viewer/").then(res=>res.json()).then(res=> {
-			tag_pengunjung.innerHTML = res.value+"<small>perangkat</small>";
+			tag_pengunjung.innerHTML = res.value+" <small>perangkat</small>";
 		});
 	}, 2500);
 } else {
 	fetch("https://api.countapi.xyz/hit/hadi-api-viewer/").then(res=>res.json()).then(res=> {
 		localStorage.setItem('Pengunjung', 'true');
-		tag_pengunjung.innerHTML = res.value+"<small>perangkat</small>";
+		tag_pengunjung.innerHTML = res.value+" <small>perangkat</small>";
 	});
 }
 
