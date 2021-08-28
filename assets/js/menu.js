@@ -3,6 +3,7 @@ item_fc = document.querySelector('[data-widget=treeview]');
 item_msg = document.querySelector('#notify');
 tag_pengunjung = document.querySelector('span#pengunjung_length');
 tag_cpu = document.querySelector('span#cpu_usage');
+tag_clock = document.querySelector('span#clock');
 
 //-- menu documentation
 for (var e of item_list) {
@@ -99,7 +100,7 @@ msg_ = ``;
 for (var e = 0; e < message_list.length; e++) {
 	msg_ += `<div class="dropdown-divider"></div>
 	<a href="#" class="dropdown-item">
-	<i class="${message_list[e].icon.trim()} mr-2"></i> ${message_list[e].title.length > 17 ? `<small>${message_list[e].title.trim()}</small>`:`${message_list[e].title.trim()}`}
+	<i class="${message_list[e].icon.trim()} mr-2"></i> ${message_list[e].title.length > 17 ? `<small>${message_list[e].title.trim()}</small>`: `${message_list[e].title.trim()}`}
 	<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing.trim()}"></span>
 	</a>`;
 }
@@ -118,3 +119,17 @@ for (var e = 0; e < timingset.length; e++) {
 timingeval += `},10);`;
 
 eval(timingeval);
+
+//-- clock
+function duo(s) {
+	return duo > 10 ? duo: 0+duo;
+}
+
+setTimeout(function() {
+
+	jam = duo(new Date().getHours());
+	menit = duo(new Date().getMinutes());
+	detik = duo(new Date().getSeconds());
+
+	tag_clock.innerHTML = `${jam}:${menit}:${detik}`;
+}, 10);
