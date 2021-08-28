@@ -132,19 +132,19 @@ setInterval(function() {
 	menit = duo(new Date().getMinutes());
 	detik = duo(new Date().getSeconds());
 
-if(jam > 19){
+if(jam >= 19){
 	tag_clock_string = 'malam';
-} else if(jam > 18){
+} else if(jam >= 18){
 	tag_clock_string = 'petang';
-} else if(jam > 15){
+} else if(jam >= 15){
 	tag_clock_string = 'Sore';
-} else if(jam > 10){
+} else if(jam >= 10){
 	tag_clock_string = 'Siang';
-} else if(String(jam) > "05"){
+} else if(String(jam) >= "05"){
 	tag_clock_string = 'Pagi';
-} else if(String(jam) > "03"){
+} else if(String(jam) >= "03"){
 	tag_clock_string = 'subuh';
-} else if(String(jam) > "00"){
+} else if(String(jam) >= "00"){
 	tag_clock_string = 'dini hari';
 } else {
 	tag_clock_string = 'hai bang';
