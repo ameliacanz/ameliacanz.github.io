@@ -155,13 +155,16 @@ setInterval(function() {
 }, 10);
 
 //-- Battery
-battery_ = navigator.getBattery();
-tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
-battery_.onchargingchange = function () {
-	battery_ = navigator.getBattery();
-	tag_battery_status.innerHTML = battery_.charging;
-};
-battery_.onlevelchange = function () {
-	battery_ = navigator.getBattery();
-	tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
-};
+navigator.getBattery().then(battery=> {
+	tag_battery_level.innerHTML = `${battery.level}% <small id="battery_status">${battery.charging}</small>`;
+	battery.onchargingchange = function () {
+		navigator.getBattery().then(battery_=> {
+			tag_battery_status.innerHTML = battery_.charging;
+		});
+	};
+	battery.onlevelchange = function () {
+		navigator.getBattery().then(battery_=> {
+			tag_battery_level.innerHTML = `${battery_.level}% <small id="battery_status">${battery_.charging}</small>`;
+		});
+	};
+});
