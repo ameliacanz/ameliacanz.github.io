@@ -150,5 +150,5 @@ if(jam > 19){
 	tag_clock_string = 'hai bang';
 }
 
-	tag_clock.innerHTML = `${jam}:${menit}:${detik}`;
+	tag_clock.innerHTML = `${jam}:${menit}:${detik} <small id="clock_string"></small>`;
 }, 10);
