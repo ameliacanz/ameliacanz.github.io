@@ -4,7 +4,6 @@ item_msg = document.querySelector('#notify');
 tag_pengunjung = document.querySelector('span#pengunjung_length');
 tag_cpu = document.querySelector('span#cpu_usage');
 tag_clock = document.querySelector('span#clock');
-tag_clock_string = document.querySelector('small#clock_string');
 
 //-- menu documentation
 for (var e of item_list) {
@@ -133,22 +132,22 @@ setInterval(function() {
 	detik = duo(new Date().getSeconds());
 
 if(jam >= 19){
-	tag_clock_string = 'malam';
+	clock_string = 'malam';
 } else if(jam >= 18){
-	tag_clock_string = 'petang';
+	clock_string = 'petang';
 } else if(jam >= 15){
-	tag_clock_string = 'Sore';
+	clock_string = 'Sore';
 } else if(jam >= 10){
-	tag_clock_string = 'Siang';
+	clock_string = 'Siang';
 } else if(String(jam) >= "05"){
-	tag_clock_string = 'Pagi';
+	clock_string = 'Pagi';
 } else if(String(jam) >= "03"){
-	tag_clock_string = 'subuh';
+	clock_string = 'subuh';
 } else if(String(jam) >= "00"){
-	tag_clock_string = 'dini hari';
+	clock_string = 'dini hari';
 } else {
-	tag_clock_string = 'hai bang';
+	clock_string = 'hai bang';
 }
 
-	tag_clock.innerHTML = `${jam}:${menit}:${detik} <small id="clock_string">Hai Bang</small>`;
+	tag_clock.innerHTML = `${jam}:${menit}:${detik} <small>${clock_string}</small>`;
 }, 10);
