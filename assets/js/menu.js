@@ -122,7 +122,7 @@ eval(timingeval);
 
 //-- clock
 function duo(s) {
-	return (duo > 10 ?) duo : 0+duo;
+	return s < 10 ? "0"+s:s;
 }
 
 setTimeout(function() {
