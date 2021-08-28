@@ -634,7 +634,7 @@ for (var e = 0;e < message_list.length;e++){
 msg = msg.replace('<!--$item-->',msg_);
 msg = msg.replace('$jumlah',message_list.length);
 
-item_msg = msg;
+item_msg.innerHTML = msg;
 
 timingset = document.querySelectorAll('span#time');
 timingeval = `setInterval(function() {`;
