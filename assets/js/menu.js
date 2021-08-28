@@ -1,6 +1,9 @@
+//-- tag html control
 item_fc = document.querySelector('[data-widget=treeview]');
 item_msg = document.querySelector('#notify');
 tag_pengunjung = document.querySelector('span#pengunjung_length');
+
+//-- menu documentation
 for (var e of item_list) {
 	coder = `<li class="nav-item">
 	<a href="#" class="nav-link">
@@ -30,12 +33,15 @@ for (var e of item_list) {
 
 	item_fc.innerHTML += coder.replace('%item$', item_coder);
 }
+
+//-- Browser information
 information = document.querySelector('#information');
 repeatinfo = setInterval(function() {
 	information.innerHTML = `<b>Browser CodeName:</b> ${navigator.appCodeName}<br><b>Browser Name:</b> ${navigator.appName}<br><b>Cookies Enabled:</b> ${navigator.cookieEnabled}<br><b>Browser Online:</b> ${navigator.onLine}<br><b>Platform:</b> ${navigator.platform} <br>
 	<b>User-Agent:</b> ${navigator.userAgent} <br><b>Time: </b> ${new Date()}`;
 }, 10);
 
+//-- pengunjung visitor length
 if (localStorage.getItem('Pengunjung')) {
 	setInterval(function() {
 		fetch("https://api.countapi.xyz/get/hadi-api-viewer/").then(res=>res.json()).then(res=> {
@@ -49,6 +55,7 @@ if (localStorage.getItem('Pengunjung')) {
 	});
 }
 
+//-- time set live
 function time(time) {
 	time2 = new Date().getTime();
 	msec = time2 - Number(time);
