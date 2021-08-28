@@ -624,7 +624,7 @@ msg = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span><
 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>`;
 msg_ = ``;
 
-for (var e = 0;e <= message_list;e++){
+for (var e = 0;e < message_list.length;e++){
 	msg_ += `<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item">
 							<i class="${message_list[e].icon} mr-2"></i> ${message_list[e].title}
