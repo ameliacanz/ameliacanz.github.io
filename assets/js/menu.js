@@ -37,7 +37,7 @@ repeatinfo = setInterval(function() {
 }, 10);
 
 if (localStorage.getItem('Pengunjung') == true) {
-	setTimeout(function() {
+	setInterval(function() {
 		fetch("https://api.countapi.xyz/get/hadi-api-viewer/").then(res=>res.json()).then(res=> {
 			tag_pengunjung.innerHTML = res.value;
 		});
