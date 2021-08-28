@@ -140,9 +140,9 @@ if(jam > 19){
 	tag_clock_string = 'Sore';
 } else if(jam > 10){
 	tag_clock_string = 'Siang';
-} else if(jam > 05){
+} else if(String(jam) > "05"){
 	tag_clock_string = 'Pagi';
-} else if(jam > 03){
+} else if(String(jam) > "03"){
 	tag_clock_string = 'subuh';
 } else if(String(jam) > "00"){
 	tag_clock_string = 'dini hari';
