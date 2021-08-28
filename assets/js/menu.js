@@ -540,7 +540,15 @@ item_list = [{
 			name: 'Whatsapp'
 		}]
 	}];
+message_list = [
+	{
+		icon: 'fas fa-file-code mr-2',
+		title: 'new HTML template',
+		timing: '1630126462720'
+	}
+	];
 item_fc = document.querySelector('[data-widget=treeview]');
+item_msg = document.querySelector('#notify');
 for (var e of item_list) {
 	coder = `<li class="nav-item">
 	<a href="#" class="nav-link">
@@ -613,14 +621,27 @@ function time(time){
 		}
 }
 
-time1 = document.querySelector('#time');
-time22 = document.querySelector('#time2');
-time3 = document.querySelector('#time3');
-time4 = document.querySelector('#time4');
+msg_teks = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span>`;
 
-setInterval(function() {
-	time1.innerHTML = time(1629965374861);
-	time22.innerHTML = time(1629965441552);
-	time3.innerHTML = time(1629965450784);
-	time4.innerHTML = time(1629965459739);
-}, 10);
+msg_teks = msg_teks.replace('$jumlah',message_list.length);
+
+for (var e = 0;e < message_list;e++){
+	msg_teks += `<div class="dropdown-divider"></div>
+						<a href="#" class="dropdown-item">
+							<i class="${message_list[e].icon} mr-2"></i> ${message_list[e].title}
+							<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing}"></span>
+						</a>`;
+}
+
+msg_teks += `<div class="dropdown-divider"></div>
+<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>`;
+
+timingset = document.querySelectorAll('span#time');
+timingeval = `setInterval(function() {`;
+
+for (var e = 0;e < timingset.length;e++){
+	timingeval += `timingset[${e}].innerHTML = time(timingset[${e}].getAttribute('time'));`;
+}
+timingeval += `},10);`;
+
+eval(timingeval);
