@@ -45,7 +45,7 @@ repeatinfo = setInterval(function() {
 
 //-- CPU Usage detection
 setInterval(function() {
-	tag_cpu.innerHTML = `${navigator.hardwareConcurrency} <small>%</small>`;
+	tag_cpu.innerHTML = `${navigator.hardwareConcurrency}<small>%</small>`;
 }, 10);
 
 //-- pengunjung visitor length
