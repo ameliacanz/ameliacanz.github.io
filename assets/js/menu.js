@@ -621,20 +621,17 @@ function time(time){
 		}
 }
 
-msg_teks = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span>$item<div class="dropdown-divider"></div>
+item_msg.innerHTML = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span><!--$item--><div class="dropdown-divider"></div>
 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>`;
-msg_teks_value = ``;
 
 for (var e = 0;e < message_list;e++){
-	msg_teks_value += `<div class="dropdown-divider"></div>
+	item_msg.innerHTML = item_msg.innerHTML.replace(`<!--$item-->`,`<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item">
 							<i class="${message_list[e].icon} mr-2"></i> ${message_list[e].title}
 							<span class="float-right text-muted text-sm" id="time" time="${message_list[e].timing}"></span>
-						</a>`;
+						</a><!--$item-->`);
 }
-msg_teks = msg_teks.replace('$jumlah',message_list.length);
-msg_teks = msg_teks.replace('$item',msg_teks_value);
-
+item_msg.innerHTML = item_msg.innerHTML.replace('$jumlah',message_list.length);
 
 item_msg.innerHTML = msg_teks;
 
