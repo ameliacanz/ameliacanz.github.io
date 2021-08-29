@@ -157,6 +157,7 @@ setInterval(function() {
 //-- Battery
 setInterval(function() {
 	navigator.getBattery().then(battery=> {
-		tag_battery_level.innerHTML = `${String(battery.level).split('.')[1]}% <small id="battery_status">${battery.charging ? 'charging': 'discharging'}</small>`;
+		battery_level = String(battery.level).split('.')[1];
+		tag_battery_level.innerHTML = `${(battery_level.length <= 1)? duo(Number(battery_level)) : Number(battery_level)}% <small id="battery_status">${battery.charging ? 'charging': 'discharging'}</small>`;
 	});
 }, 10);
