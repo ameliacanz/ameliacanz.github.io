@@ -6,6 +6,7 @@ tag_cpu = document.querySelector('span#cpu_usage');
 tag_clock = document.querySelector('span#clock');
 tag_battery_status = document.querySelector('small#battery_status');
 tag_battery_level = document.querySelector('span#battery_level');
+tag_netinfo = document.querySelector('#informationnet');
 
 //-- menu documentation
 for (var e of item_list) {
@@ -164,3 +165,12 @@ setInterval(function() {
 		tag_battery_level.innerHTML = `${(battery_level.length <= 1)? oud(Number(battery_level)) : battery_level}% <small>${battery.charging ? 'charging': 'discharging'}</small>`;
 	});
 }, 10);
+
+//-- network information
+function net(){
+	fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=>{
+		res = res.result;
+		tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${res.isProxy ? 'true':'false'}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGTITUDE: </b>${res.longtitude}`;
+	});
+}
+net();
