@@ -170,7 +170,7 @@ setInterval(function() {
 function net(){
 	fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=>{
 		res = res.result;
-		tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${res.isProxy ? 'true':'false'}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGTITUDE: </b>${res.longtitude}`;
+		tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${res.isProxy ? 'true':'false'}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGITUDE: </b>${res.longitude}`;
 	});
 }
 net();
