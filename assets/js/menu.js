@@ -141,11 +141,11 @@ setInterval(function() {
 		clock_string = 'Sore';
 	} else if (jam >= 10) {
 		clock_string = 'Siang';
-	} else if (String(jam) >= "05") {
+	} else if (jam >= 5) {
 		clock_string = 'Pagi';
-	} else if (String(jam) >= "03") {
+	} else if (jam >= 3) {
 		clock_string = 'subuh';
-	} else if (String(jam) >= "00") {
+	} else if (jam >= 0) {
 		clock_string = 'dini hari';
 	} else {
 		clock_string = 'hai bang';
