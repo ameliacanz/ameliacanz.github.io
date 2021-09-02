@@ -26,11 +26,12 @@ for (var e of item_list) {
 	item_coder = "";
 	for (var ee of e.item) {
 		item_coder += `<li class="nav-item">
-		<a href="${ee.url.trim()}" target="_blank" class="nav-link">
+		<a href="${ee.url.trim()}" ${(ee.error==true) ? 'disable="disable"':""} target="_blank" class="nav-link">
 		<!--<i class="far fa-circle nav-icon"></i>-->
 		<p>
 		- ${ee.name.trim()}
 		${ee.event ? `<span class="right badge badge-danger">${ee.event.trim()}</span>`: ``}
+		${(ee.error==true) ? `<span class="right badge badge-danger">ERROR</span>`:``}
 		</p>
 		</a>
 		</li>`;
