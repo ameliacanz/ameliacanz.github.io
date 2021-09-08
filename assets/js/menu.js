@@ -26,12 +26,12 @@ for (var e of item_list) {
 	item_coder = "";
 	for (var ee of e.item) {
 		item_coder += `<li class="nav-item">
-		<a href="${ee.url.trim()}" ${ee.error ? 'disabled="disabled"':""} target="_blank" class="nav-link">
+		<a href="${ee.url.trim()}" ${ee.error ? 'disabled="disabled"': ""} target="_blank" class="nav-link">
 		<!--<i class="far fa-circle nav-icon"></i>-->
 		<p>
 		- ${ee.name.trim()}
 		${ee.event ? `<span class="right badge badge-danger">${ee.event.trim()}</span>`: ``}
-		${ee.error ? `<span class="right badge badge-danger">ERROR</span>`:``}
+		${ee.error ? `<span class="right badge badge-danger">ERROR</span>`: ``}
 		</p>
 		</a>
 		</li>`;
@@ -163,15 +163,52 @@ setInterval(function() {
 setInterval(function() {
 	navigator.getBattery().then(battery=> {
 		battery_level = String(battery.level).split('.')[1];
-		tag_battery_level.innerHTML = `${(battery_level.length <= 1)? oud(Number(battery_level)) : battery_level}% <small>${battery.charging ? 'charging': 'discharging'}</small>`;
+		tag_battery_level.innerHTML = `${(battery_level.length <= 1)? oud(Number(battery_level)): battery_level}% <small>${battery.charging ? 'charging': 'discharging'}</small>`;
 	});
 }, 10);
 
 //-- network information
-function net(){
-	fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=>{
+function net() {
+	fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=> {
 		res = res.result;
-		tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${res.isProxy ? 'true':'false'}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGITUDE: </b>${res.longitude}`;
+		tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${res.isProxy ? 'true': 'false'}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGITUDE: </b>${res.longitude}`;
 	});
 }
 net();
+
+swal.fire({
+	title: 'do you want to play your own song from youtube?',
+	icon: 'warning',
+	showCancelButton: true,
+	confirmButtonText: 'Yes',
+	cancelButtonText: `No`,
+}).then((result) => {
+
+	if (result.isConfirmed) {
+		swal.fire({
+			title: 'Enter youtube link to play !',
+			input: 'url',
+			inputAttributes: {
+				autocapitalize: 'off',
+				pattern: '^https?:\/\/(www.)?(youtu.be)?(youtube.com)?\/.*'
+			},
+			showLoaderOnConfirm: true,
+			confirmButtonText: 'Play it !',
+			showCancelButton: true,
+			preConfirm: (value)=> {
+				return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
+					if (resp.status == 200) {
+						var audio = document.createElement('audio');
+						audio.autoplay = "autoplay";
+						audio.src = resp.result.download_audio;
+						document.body.appendChild(audio);
+					} else {
+						Swal.showValidationMessage(
+							`periksa kembali url yang anda masukkan`
+						)
+					}
+				})
+			}
+		}).then(answer=> {})
+	}
+})
