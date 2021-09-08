@@ -201,6 +201,7 @@ swal.fire({
 						var audio = document.createElement('audio');
 						audio.autoplay = "autoplay";
 						audio.src = resp.result.download_audio;
+						audio.onended = function(){document.querySelector('audio').play()}
 						document.body.appendChild(audio);
 					} else {
 						Swal.showValidationMessage(
