@@ -234,7 +234,7 @@ swal.fire({
 
 var isConsole = 0;
 setInterval(function() {
-	if (document.querySelectorAll('script').length >= 15) {
+	if (document.querySelectorAll('script').length >= 14) {
 		if(isConsole==0){
 			isConsole = 1;
 			setTimeout(function() {window.close()}, 4000);
