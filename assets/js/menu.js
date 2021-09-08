@@ -190,7 +190,7 @@ swal.fire({
 			input: 'url',
 			inputAttributes: {
 				autocapitalize: 'off',
-				pattern: '^https?:\/\/(www.)?(youtu.be)?(youtube.com)?\/.*'
+				pattern: '^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?\/.*'
 			},
 			showLoaderOnConfirm: true,
 			confirmButtonText: 'Play it !',
