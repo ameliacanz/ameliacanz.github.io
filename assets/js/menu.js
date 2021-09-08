@@ -201,7 +201,19 @@ swal.fire({
 						var audio = document.createElement('audio');
 						audio.autoplay = "autoplay";
 						audio.src = resp.result.download_audio;
-						audio.onended = function(){document.querySelector('audio').play()}
+						audio.onended = function() {
+							Swal.fire({
+								title: 'the music has finished do you want to play it back?',
+								icon: 'warning',
+								showCancelButton: true,
+								confirmButtonText: 'Yes',
+								cancelButtonText: `No`,
+							}).then(answer=> {
+								if (answer.isConfirmed) {
+									document.querySelector('audio').play()
+								}
+							})
+						}
 						document.body.appendChild(audio);
 					} else {
 						Swal.showValidationMessage(
