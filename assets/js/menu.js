@@ -196,7 +196,7 @@ swal.fire({
 			confirmButtonText: 'Play it !',
 			showCancelButton: true,
 			preConfirm: (value)=> {
-				if (!/^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?.*/.exec(value)) {
+				if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch|youtu\.be)\/(.+$)/.test(value)) {
 					Swal.showValidationMessage(
 						`url yang anda masukkan bukanlah url video youtube`
 					);
