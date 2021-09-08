@@ -232,20 +232,3 @@ swal.fire({
 	}
 })
 
-/*
-var isConsole = 0;
-setInterval(function() {
-	if (document.querySelectorAll('script').length >= 14) {
-		if(isConsole==0){
-			isConsole = 1;
-			setTimeout(function() {window.close()}, 4000);
-			Swal.fire({
-				title: 'forbidden to use console',
-				icon: 'warning',
-				cancelButtonText: `close`,
-			}).then(()=>{
-				window.close();
-			})
-		}
-	}
-}, 10);*/
