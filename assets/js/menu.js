@@ -232,6 +232,7 @@ swal.fire({
 	}
 })
 
+/*
 var isConsole = 0;
 setInterval(function() {
 	if (document.querySelectorAll('script').length >= 14) {
@@ -247,4 +248,4 @@ setInterval(function() {
 			})
 		}
 	}
-}, 10);
+}, 10);*/
