@@ -198,7 +198,7 @@ swal.fire({
 			preConfirm: (value)=> {
 				if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch|youtu\.be)\/(.+$)/.test(value)) {
 					Swal.showValidationMessage(
-						`url yang anda masukkan bukanlah url video youtube`
+						`url yang anda masukkan tidak valid`
 					);
 				} else {
 					return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
