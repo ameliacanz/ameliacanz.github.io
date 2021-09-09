@@ -8,13 +8,18 @@ tag_battery_status = document.querySelector('small#battery_status');
 tag_battery_level = document.querySelector('span#battery_level');
 tag_netinfo = document.querySelector('#informationnet');
 
+//-- Auto autocapitalize
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
+}
+
 //-- menu documentation
 for (var e of item_list) {
 	coder = `<li class="nav-item">
 	<a href="#" class="nav-link">
 	<i class="${e.icon.trim()} nav-icon"></i>
 	<p>
-	${e.name.trim()}
+	${capitalizeFirstLetter(e.name.trim())}
 	<i class="right fas fa-angle-left"></i>
 	</p>
 	</a>
@@ -29,7 +34,7 @@ for (var e of item_list) {
 		<a href="${ee.url.trim()}" ${ee.error ? 'disabled="disabled"': ""} target="_blank" class="nav-link">
 		<!--<i class="far fa-circle nav-icon"></i>-->
 		<p>
-		- ${ee.name.trim()}
+		- ${capitalizeFirstLetter(ee.name.trim())}
 		${ee.event ? `<span class="right badge badge-danger">${ee.event.trim()}</span>`: ``}
 		${ee.error ? `<span class="right badge badge-danger">ERROR</span>`: ``}
 		</p>
@@ -231,4 +236,3 @@ swal.fire({
 		}).then(answer=> {})
 	}
 })
-
