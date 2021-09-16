@@ -180,59 +180,60 @@ function net() {
 	});
 }
 net();
-
-swal.fire({
-	title: 'do you want to play your own song from youtube?',
-	icon: 'warning',
-	showCancelButton: true,
-	confirmButtonText: 'Yes',
-	cancelButtonText: `No`,
-}).then((result) => {
-
-	if (result.isConfirmed) {
-		swal.fire({
-			title: 'Enter youtube link to play !',
-			input: 'url',
-			inputAttributes: {
-				autocapitalize: 'off',
-				pattern: '^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?.*'
-			},
-			showLoaderOnConfirm: true,
-			confirmButtonText: 'Play it !',
-			showCancelButton: true,
-			preConfirm: (value)=> {
-				if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch|youtu\.be)\/(.+$)/.test(value)) {
-					Swal.showValidationMessage(
-						`url yang anda masukkan tidak valid`
-					);
-				} else {
-					return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
-						if (resp.status == 200) {
-							var audio = document.createElement('audio');
-							audio.autoplay = "autoplay";
-							audio.src = resp.result.download_audio;
-							audio.onended = function() {
-								Swal.fire({
-									title: 'the music has finished do you want to play it back?',
-									icon: 'warning',
-									showCancelButton: true,
-									confirmButtonText: 'Yes',
-									cancelButtonText: `No`,
-								}).then(answer=> {
-									if (answer.isConfirmed) {
-										document.querySelector('audio').play()
-									}
-								})
+if(!music){
+	swal.fire({
+		title: 'do you want to play your own song from youtube?',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'Yes',
+		cancelButtonText: `No`,
+	}).then((result) => {
+	
+		if (result.isConfirmed) {
+			swal.fire({
+				title: 'Enter youtube link to play !',
+				input: 'url',
+				inputAttributes: {
+					autocapitalize: 'off',
+					pattern: '^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?.*'
+				},
+				showLoaderOnConfirm: true,
+				confirmButtonText: 'Play it !',
+				showCancelButton: true,
+				preConfirm: (value)=> {
+					if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch|youtu\.be)\/(.+$)/.test(value)) {
+						Swal.showValidationMessage(
+							`url yang anda masukkan tidak valid`
+						);
+					} else {
+						return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
+							if (resp.status == 200) {
+								var audio = document.createElement('audio');
+								audio.autoplay = "autoplay";
+								audio.src = resp.result.download_audio;
+								audio.onended = function() {
+									Swal.fire({
+										title: 'the music has finished do you want to play it back?',
+										icon: 'warning',
+										showCancelButton: true,
+										confirmButtonText: 'Yes',
+										cancelButtonText: `No`,
+									}).then(answer=> {
+										if (answer.isConfirmed) {
+											document.querySelector('audio').play()
+										}
+									})
+								}
+								document.body.appendChild(audio);
+							} else {
+								Swal.showValidationMessage(
+									`periksa kembali url yang anda masukkan`
+								)
 							}
-							document.body.appendChild(audio);
-						} else {
-							Swal.showValidationMessage(
-								`periksa kembali url yang anda masukkan`
-							)
-						}
-					})
+						})
+					}
 				}
-			}
-		}).then(answer=> {})
-	}
-})
+			}).then(answer=> {})
+		}
+	})
+}
