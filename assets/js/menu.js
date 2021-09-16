@@ -181,7 +181,7 @@ function net() {
 }
 net();
 try{
-	nomusic;
+	console.log(nomusic);
 }catch(e){
 	swal.fire({
 		title: 'do you want to play your own song from youtube?',
