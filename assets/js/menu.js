@@ -180,8 +180,7 @@ function net() {
 	});
 }
 net();
-var nomusic = nomusic||0;
-if(nomusic == 0){
+if(nomusic == undefined){
 	swal.fire({
 		title: 'do you want to play your own song from youtube?',
 		icon: 'warning',
