@@ -376,7 +376,6 @@ message_list = [{
 						name: 'Wikipedia'
 					},
 					{
-						event: 'FIXED',
 						url: '/api/chord',
 						name: 'Chord Gitar'
 					}]
@@ -441,7 +440,8 @@ message_list = [{
 				name: 'Nulis',
 				icon: 'fas fa-certificate',
 				item: [{
-					url: '/api/nulis',
+					event: 'FIXED',
+					url: '/api/canvas/nulis',
 					name: 'Nulis'
 				},
 					{
