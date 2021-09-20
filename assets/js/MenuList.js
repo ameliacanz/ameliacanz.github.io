@@ -440,10 +440,14 @@ message_list = [{
 				name: 'Nulis',
 				icon: 'fas fa-certificate',
 				item: [{
-					event: 'FIXED',
 					url: '/api/canvas/nulis',
 					name: 'Nulis'
 				},
+					{
+						event: 'NEW',
+						url: '/api/canvas/nulis2',
+						name: 'nulis 2'
+					},
 					{
 						url: '/docs/resize',
 						name: 'resize image'
@@ -537,7 +541,6 @@ message_list = [{
 						name: 'Infogempa',
 					},
 					{
-						event: 'NEW',
 						url: '/api/cuaca',
 						name: 'cuaca',
 					},
