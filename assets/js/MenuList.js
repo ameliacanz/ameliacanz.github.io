@@ -425,7 +425,7 @@ message_list = [{
 						name: 'Loli'
 					},
 					{
-						event: 'REPAIR',
+						event: 'NSFW/SFW REPAIR',
 						url: '/api/walpaperanime',
 						name: 'Wallpaperanime'
 					},
@@ -435,7 +435,7 @@ message_list = [{
 						name: 'Wallpaperflare'
 					},
 					{
-						event: 'NSFW/SFW',
+						event: 'NSFW/SFW NEW',
 						url: '/api/wallpaperhd',
 						name: 'WallpaperHD'
 					},
