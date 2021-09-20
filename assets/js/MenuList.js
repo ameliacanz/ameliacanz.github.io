@@ -426,13 +426,18 @@ message_list = [{
 					},
 					{
 						event: 'NSFW/SFW',
-						url: '/api/wallpaperanime',
+						url: '/api/walpaperanime',
 						name: 'Wallpaperanime'
 					},
 					{
 						event: 'NSFW/SFW',
 						url: '/api/wallpaperflare',
 						name: 'Wallpaperflare'
+					},
+					{
+						event: 'NSFW/SFW',
+						url: '/api/wallpaperhd',
+						name: 'WallpaperHD'
 					},
 				]
 			},
