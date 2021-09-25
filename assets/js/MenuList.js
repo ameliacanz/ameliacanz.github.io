@@ -445,7 +445,7 @@ message_list = [{
 						name: 'Wallpaperflare'
 					},
 					{
-						event: 'NSFW/SFW NEW',
+						event: 'NSFW/SFW',
 						url: '/api/wallpaperhd',
 						name: 'WallpaperHD'
 					},
@@ -459,7 +459,6 @@ message_list = [{
 					name: 'Nulis'
 				},
 					{
-						event: 'NEW',
 						url: '/api/canvas/nulis2',
 						name: 'nulis 2'
 					},
