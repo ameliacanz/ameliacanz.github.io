@@ -52,6 +52,10 @@ message_list = [{
 					"name": "1cak"
 				},
 				{
+					"url": "/api/googlesearch",
+					"name": "google result search"
+				},
+				{
 					"url": "/api/githubstalk",
 					"name": "Github stalk"
 				}]
@@ -374,6 +378,11 @@ message_list = [{
 					{
 						url: '/api/wiki',
 						name: 'Wikipedia'
+					},
+					{
+						event: 'NEW',
+						url: '/api/terjemahan',
+						name: 'Translate'
 					},
 					{
 						url: '/api/chord',
