@@ -52,6 +52,7 @@ message_list = [{
 					"name": "1cak"
 				},
 				{
+					event: "NEW",
 					"url": "/api/googlesearch",
 					"name": "google result search"
 				},
