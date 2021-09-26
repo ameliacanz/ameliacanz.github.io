@@ -515,6 +515,10 @@ message_list = [{
 						name: 'Ssweb',
 					},
 					{
+						url: '/api/ssweb2',
+						name: 'Ssweb2',
+					},
+					{
 						url: '/api/tinyurl',
 						name: 'Tinyurl',
 					},
