@@ -515,6 +515,7 @@ message_list = [{
 						name: 'Ssweb',
 					},
 					{
+						event: 'NEW',
 						url: '/api/ssweb2',
 						name: 'Ssweb2',
 					},
