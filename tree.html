@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+	<meta name="author" content="m hadi firmansya" />
+	<!--<base href="https://hadi-api.github.io/" />-->
+	<style type="text/css" media="all">
+		body {
+			background: URL(//hadi-api.github.io/assets/image/keqing_wangy.jpg) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+		button {
+			text-align: center;
+			background: none;
+			color: white;
+			max-width: 95%;
+			max-height: 95%;
+			border-radius: 50px;
+			border: 0.5px solid white;
+			background-color: rgba(0,0,0,0.3);
+		}
+		.trees {
+			margin: 10%;
+			margin-bottom: 10%;
+			z-index: 1;
+			width: 80%;
+			min-height: 90%;
+		}
+	</style>
+</head>
+<body>
+	<div class="trees">
+		<div id="trees2">
+
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+	'use strict'
+		var tag = document.querySelector('div#trees2')
+		tag.innerHTML = ""
+		var i = -1
+		var home,filename
+		var last = [];
+		var path = ["https://hadi-api.github.io"]
+		function render(url, size) {
+			fetch(`${unescape(url)}`).then(res=>res.json()).then(res=> {
+				if (!url.includes('/git/blobs/')) {
+					tag.innerHTML = ""
+					if(!last.includes(url)){last.push(url);}
+					if(!url.includes(home)){tag.innerHTML += `<button onclick="i-=1;render('${last[i]}');last.splice(${last.length-1});path.splice(${path.length-1})">back</button><br><br>`}
+					console.log(40*"=")
+					for (var e of res.tree) {
+						tag.innerHTML += `<button onclick="i+=1;render('${e.url}');path.push('/${escape(e.path)}')">${escape(e.path)} ${e.url.includes("/git/blobs") ? "size: "+(e.size/1000)+"KB": ""}</button><br><br>`
+					}
+				} else {
+					var link = ""
+					for (var e of path){
+						link+=unescape(e)
+					}
+					window.open(link)
+					path.splice(path.length-1)
+					i-=1
+				}
+			})
+		}
+			
+		fetch('https://api.github.com/repos/hadi-api/hadi-api.github.io/branches/main').then(res=>res.json()).then(res=> {
+			home = res.commit.commit.tree.url
+			render(home)
+		})
+	</script>
+</body>
+</html>
