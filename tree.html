@@ -60,7 +60,6 @@
 					if (!url.includes(home)) {
 						tag.innerHTML += `<button onclick="i-=1;render('${last[i]}');last.splice(${last.length-1});path.splice(${path.length-1})">back</button><br><br>`
 					}
-					console.log(40*"=")
 					for (var e of res.tree) {
 						tag.innerHTML += `<button onclick="i+=1;path.push('/${escape(e.path)}');render('${e.url}');">${escape(e.path)} ${e.url.includes("/git/blobs") ? "size: "+(e.size/1000)+"KB": ""}</button><br><br>`
 					}
