@@ -43,35 +43,39 @@
 		</div>
 	</div>
 	<script type="text/javascript" charset="utf-8">
-	'use strict'
+		'use strict'
 		var tag = document.querySelector('div#trees2')
 		tag.innerHTML = ""
 		var i = -1
-		var home,filename
+		var home, filename
 		var last = [];
 		var path = ["https://hadi-api.github.io"]
 		function render(url, size) {
-			fetch(`${unescape(url)}`).then(res=>res.json()).then(res=> {
-				if (!url.includes('/git/blobs/')) {
+			if (!url.includes('/git/blobs/')) {
+				fetch(`${unescape(url)}`).then(res=>res.json()).then(res=> {
 					tag.innerHTML = ""
-					if(!last.includes(url)){last.push(url);}
-					if(!url.includes(home)){tag.innerHTML += `<button onclick="i-=1;render('${last[i]}');last.splice(${last.length-1});path.splice(${path.length-1})">back</button><br><br>`}
+					if (!last.includes(url)) {
+						last.push(url);
+					}
+					if (!url.includes(home)) {
+						tag.innerHTML += `<button onclick="i-=1;render('${last[i]}');last.splice(${last.length-1});path.splice(${path.length-1})">back</button><br><br>`
+					}
 					console.log(40*"=")
 					for (var e of res.tree) {
-						tag.innerHTML += `<button onclick="i+=1;render('${e.url}');path.push('/${escape(e.path)}')">${escape(e.path)} ${e.url.includes("/git/blobs") ? "size: "+(e.size/1000)+"KB": ""}</button><br><br>`
+						tag.innerHTML += `<button onclick="i+=1;path.push('/${escape(e.path)}');render('${e.url}');">${escape(e.path)} ${e.url.includes("/git/blobs") ? "size: "+(e.size/1000)+"KB": ""}</button><br><br>`
 					}
-				} else {
-					var link = ""
-					for (var e of path){
-						link+=unescape(e)
-					}
-					window.open(link)
-					path.splice(path.length-1)
-					i-=1
+				})
+			} else {
+				var link = ""
+				for (var e of path) {
+					link += unescape(e)
 				}
-			})
+				window.open(link)
+				path.splice(path.length-1)
+				i -= 1
+			}
 		}
-			
+
 		fetch('https://api.github.com/repos/hadi-api/hadi-api.github.io/branches/main').then(res=>res.json()).then(res=> {
 			home = res.commit.commit.tree.url
 			render(home)
