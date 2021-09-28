@@ -385,7 +385,6 @@ item_list = [{
 				name: 'Wikipedia'
 			},
 			{
-
 				url: '/api/terjemahan',
 				name: 'Translate'
 			},
