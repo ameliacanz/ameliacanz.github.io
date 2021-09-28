@@ -9,6 +9,26 @@ try {
 	tag_battery_level = document.querySelector('span#battery_level');
 	tag_netinfo = document.querySelector('#informationnet');
 
+	//popup request menu
+	function requestmenu(){
+		var Toast = Swal.mixin({
+			toast: true,
+			position: 'top-end',
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener('mouseenter', Swal.stopTimer)
+				toast.addEventListener('mouseleave', Swal.resumeTimer)
+			}
+		})
+
+		Toast.fire({
+			icon: 'info',
+			title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
+		})
+	}
+	
 	//-- Auto autocapitalize
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
