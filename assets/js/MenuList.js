@@ -438,7 +438,7 @@ item_list = [{
 				name: 'Loli'
 			},
 			{
-				event: 'NSFW/SFW REPAIR',
+				event: 'NSFW/SFW',
 				url: '/api/walpaperanime',
 				name: 'Wallpaperanime'
 			},
@@ -518,7 +518,6 @@ item_list = [{
 				name: 'Ssweb',
 			},
 			{
-
 				url: '/api/ssweb2',
 				name: 'Ssweb2',
 			},
