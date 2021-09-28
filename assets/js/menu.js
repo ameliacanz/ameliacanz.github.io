@@ -246,6 +246,7 @@ try {
 										})
 									}
 									document.body.appendChild(audio);
+									requestmenu();
 								} else {
 									Swal.showValidationMessage(
 										`periksa kembali url yang anda masukkan`
@@ -254,7 +255,9 @@ try {
 							})
 						}
 					}
-				}).then(answer=> {})
+				}).then(answer=> {requestmenu();})
+			}else{
+				requestmenu();
 			}
 		})
 	}
