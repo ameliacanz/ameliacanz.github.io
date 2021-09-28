@@ -10,7 +10,7 @@ try {
 	tag_netinfo = document.querySelector('#informationnet');
 
 	//popup request menu
-	function requestmenu(){
+	function requestmenu() {
 		var Toast = Swal.mixin({
 			toast: true,
 			position: 'top-end',
@@ -20,11 +20,17 @@ try {
 		})
 
 		Toast.fire({
+			showClass: {
+				popup: 'animate__bounceInRight'
+			},
+			hideClass: {
+				popup: 'animate__bounceOutRight'
+			},
 			icon: 'info',
 			title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
 		})
 	}
-	
+
 	//-- Auto autocapitalize
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -255,8 +261,10 @@ try {
 							})
 						}
 					}
-				}).then(answer=> {requestmenu();})
-			}else{
+				}).then(answer=> {
+					requestmenu();
+				})
+			} else {
 				requestmenu();
 			}
 		})
