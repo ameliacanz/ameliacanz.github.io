@@ -373,6 +373,10 @@ item_list = [{
 			name: 'Kompas'
 		},
 			{
+				url: '/api/beritanasional',
+				name: 'berita nasional (Indonesia)'
+			},
+			{
 				url: '/api/detik',
 				name: 'Detik'
 			},
