@@ -488,6 +488,10 @@ item_list = [{
 				name: 'yasin image'
 			},
 			{
+				url: '/docs/wanted',
+				name: 'wanted'
+			},
+			{
 				url: '/api/card/Welcome',
 				name: 'Welcome'
 			},
