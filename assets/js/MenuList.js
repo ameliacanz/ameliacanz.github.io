@@ -45,8 +45,13 @@ item_list = [{
 		},
 		{
 			event: 'NEW',
-			"url": "/api/soundcloudplay",
+			"url": "/api/soundcloud/play",
 			"name": "sound cloud play"
+		},
+		{
+			event: 'NEW',
+			"url": "/api/soundcloud/download",
+			"name": "sound cloud downloader"
 		},
 		{
 			"url": "/api/tiktok",
