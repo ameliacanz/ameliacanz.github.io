@@ -488,6 +488,7 @@ item_list = [{
 				name: 'yasin image'
 			},
 			{
+				event: "NEW",
 				url: '/docs/wanted',
 				name: 'wanted'
 			},
