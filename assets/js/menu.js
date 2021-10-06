@@ -237,7 +237,7 @@ try {
 								if (resp.status == 200) {
 									var audio = document.createElement('audio');
 									audio.autoplay = "autoplay";
-									audio.src = resp.result.download_audio;
+									audio.src = resp.result.download_audio_2;
 									audio.onended = function() {
 										Swal.fire({
 											title: 'the music has finished do you want to play it back?',
