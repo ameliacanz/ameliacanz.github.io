@@ -40,7 +40,7 @@ item_list = [{
 			"name": "Yt scraper"
 		},
 		{
-			event: 'REPAIR',
+			event: 'FIXED',
 			"url": "/api/ytplay",
 			"name": "YtPlay"
 		},
