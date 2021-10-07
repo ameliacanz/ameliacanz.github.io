@@ -61,6 +61,11 @@ item_list = [{
 			"name": "Pinterest"
 		},
 		{
+			event: 'NEW',
+			url: '/docs/top4top',
+			name: 'top4top uploader',
+		},
+		{
 			"url": "/api/1cak",
 			"name": "1cak"
 		},
