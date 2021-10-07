@@ -44,12 +44,10 @@ item_list = [{
 			"name": "YtPlay"
 		},
 		{
-			event: 'NEW',
 			"url": "/api/soundcloud/play",
 			"name": "sound cloud play"
 		},
 		{
-			event: 'NEW',
 			"url": "/api/soundcloud/download",
 			"name": "sound cloud downloader"
 		},
@@ -378,7 +376,6 @@ item_list = [{
 			name: 'Kompas'
 		},
 			{
-				event: 'NEW',
 				url: '/api/beritanasional',
 				name: 'berita nasional (Indonesia)'
 			},
@@ -448,6 +445,11 @@ item_list = [{
 				name: 'Neko2'
 			},
 			{
+				event: 'NEW',
+				url: '/api/randomImage/cecan',
+				name: 'cecan'
+			},
+			{
 				url: '/api/loli',
 				name: 'Loli'
 			},
@@ -488,7 +490,6 @@ item_list = [{
 				name: 'yasin image'
 			},
 			{
-				event: "NEW",
 				url: '/docs/wanted',
 				name: 'wanted'
 			},
