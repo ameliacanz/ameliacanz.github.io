@@ -228,7 +228,7 @@ try {
 					confirmButtonText: 'Play it !',
 					showCancelButton: true,
 					preConfirm: (value)=> {
-						if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch|youtu\.be)\/(.+$)/.test(value)) {
+						if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch\?v=|youtu\.be\/)(.+$)/.test(value)) {
 							Swal.showValidationMessage(
 								`url yang anda masukkan tidak valid`
 							);
