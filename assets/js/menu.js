@@ -76,9 +76,14 @@ try {
 	}, 10);
 
 	//-- CPU Usage detection
+	fetch("https://hadi-api.herokuapp.com/system/about").then(res=>res.json()).then(res=>{
+		tag_cpu.innerHTML = `${res.memoryUsage.rss}<small>/ 500MB</small>`;
+	});
 	setInterval(function() {
-		tag_cpu.innerHTML = `${navigator.hardwareConcurrency}<small>%</small>`;
-	}, 10);
+		fetch("https://hadi-api.herokuapp.com/system/about").then(res=>res.json()).then(res=>{
+			tag_cpu.innerHTML = `${res.memoryUsage.rss}<small>/ 500MB</small>`;
+		});
+	}, 2000);
 
 	//-- pengunjung visitor length
 	if (localStorage.getItem('Pengunjung')) {
