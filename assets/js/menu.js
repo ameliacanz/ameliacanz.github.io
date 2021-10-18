@@ -204,7 +204,7 @@ try {
 
 	//-- network information
 	let region = navigator.language;
-	let isVPN false;
+	let isVPN = false;
 	function net() {
 		fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=> {
 			res = res.result;
