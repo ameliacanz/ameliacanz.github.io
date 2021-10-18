@@ -115,19 +115,19 @@ try {
 		minggu_str = Number(String(minggu).split('.')[0]);
 
 		if (minggu_str > 0 && minggu_str < 7) {
-			return `<small>${minggu_str} weeks</small>`;
+			return `<small>${minggu_str} weeks ago</small>`;
 		} else if (minggu > 52.1428571 && minggu_str > 7) {
 			return `<small>a few years ago</small>`;
 		} else if (detik < 60 && detik_str > 0) {
-			return `<small>${detik_str} sec</small>`;
+			return `<small>${detik_str} sec ago</small>`;
 		} else if (menit < 60 && menit_str > 0) {
-			return `<small>${menit_str} mins</small>`;
+			return `<small>${menit_str} mins ago</small>`;
 		} else if (jam < 24 && jam_str > 0) {
-			return `<small>${jam_str} hours</small>`;
+			return `<small>${jam_str} hours ago</small>`;
 		} else if (hari < 7 && hari_str > 0) {
-			return `<small>${hari_str} day</small>`;
+			return `<small>${hari_str} days ago</small>`;
 		} else {
-			return `<small>${hari_str} day</small>`;
+			return `<small>${hari_str} days ago</small>`;
 		}
 	}
 	msg = `<span class="dropdown-item dropdown-header">$jumlah Notifications</span><!--$item--><div class="dropdown-divider"></div>
