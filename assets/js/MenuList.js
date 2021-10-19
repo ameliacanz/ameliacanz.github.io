@@ -535,6 +535,7 @@ item_list = [{
 	{
 		name: 'Converter',
 		icon: 'fad fa-toolbox',
+		event: 'NEW',
 		item: [{
 			url: '/docs/converter#jpeg-to-webp',
 			name: 'jpeg to webp'
