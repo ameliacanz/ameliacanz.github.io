@@ -1,4 +1,4 @@
-//try {
+try {
 	//-- tag html control
 	item_fc = document.querySelector('[data-widget=treeview]');
 	item_msg = document.querySelector('#notify');
@@ -276,7 +276,7 @@
 				requestmenu();
 			}
 		})
-	}/*
+	}
 }catch(e) {
 	console.log("pass")
-}*/
+}
