@@ -8,7 +8,6 @@ try {
 	tag_battery_status = document.querySelector('small#battery_status');
 	tag_battery_level = document.querySelector('span#battery_level');
 	tag_netinfo = document.querySelector('#informationnet');
-
 	//popup request menu
 	function requestmenu() {
 		var Toast = Swal.mixin({
