@@ -43,6 +43,7 @@ try {
 		<i class="${e.icon.trim()} nav-icon"></i>
 		<p>
 		${capitalizeFirstLetter(e.name.trim())}
+		${ee.event ? `<span class="center badge badge-danger">${e.event.trim()}</span>`: ``}
 		<i class="right fas fa-angle-left"></i>
 		</p>
 		</a>
