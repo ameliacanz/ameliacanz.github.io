@@ -1,4 +1,4 @@
-try {
+//try {
 	//-- tag html control
 	item_fc = document.querySelector('[data-widget=treeview]');
 	item_msg = document.querySelector('#notify');
@@ -42,7 +42,7 @@ try {
 		<i class="${e.icon.trim()} nav-icon"></i>
 		<p>
 		${capitalizeFirstLetter(e.name.trim())}
-		${e.event ? `<span class="center badge badge-danger">${e.event.trim()}</span>`: ``}
+		${e.event ? `<span class="right badge badge-danger">${e.event.trim()}</span>`: ``}
 		<i class="right fas fa-angle-left"></i>
 		</p>
 		</a>
@@ -276,7 +276,7 @@ try {
 				requestmenu();
 			}
 		})
-	}
+	}/*
 }catch(e) {
 	console.log("pass")
-}
+}*/
