@@ -533,6 +533,42 @@ item_list = [{
 			}]
 	},
 	{
+		name: 'Converter',
+		icon: 'fad fa-toolbox',
+		item: [{
+			url: '/docs/converter#jpeg-to-webp',
+			name: 'jpeg to webp'
+		},
+			{
+				url: '/docs/converter#png-to-webp',
+				name: 'png to webp'
+			},
+			{
+				url: '/docs/converter#gif-to-webp',
+				name: 'gif to webp'
+			},
+			{
+				url: '/docs/converter#video-to-webp',
+				name: 'video to webp'
+			},
+			{
+				url: '/docs/converter#webp-to-png',
+				name: 'webp to png'
+			},
+			{
+				url: '/docs/converter#webp-to-jpeg',
+				name: 'webp to jpeg'
+			},
+			{
+				url: '/docs/converter#webp-to-gif',
+				name: 'webp to gif'
+			},
+			{
+				url: '/docs/converter#webp-to-mp4',
+				name: 'webp to video'
+			}]
+	},
+	{
 		name: 'Others',
 		icon: 'fas fa-leaf',
 		item: [{
