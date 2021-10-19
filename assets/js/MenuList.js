@@ -64,10 +64,6 @@ item_list = [{
 			name: 'top4top uploader',
 		},
 		{
-			"url": "/api/1cak",
-			"name": "1cak"
-		},
-		{
 			"url": "/api/googlesearch",
 			"name": "google result search"
 		},
