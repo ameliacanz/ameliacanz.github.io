@@ -42,8 +42,8 @@
 		<i class="${e.icon.trim()} nav-icon"></i>
 		<p>
 		${capitalizeFirstLetter(e.name.trim())}
-		${e.event ? `<span class="right badge badge-danger">${e.event.trim()}</span>`: ``}
 		<i class="right fas fa-angle-left"></i>
+		${e.event ? `<span class="right badge badge-danger">${e.event.trim()}</span>`: ``}
 		</p>
 		</a>
 		<ul class="nav nav-treeview">
