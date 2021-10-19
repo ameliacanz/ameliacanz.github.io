@@ -40,7 +40,6 @@ item_list = [{
 			"name": "Yt scraper"
 		},
 		{
-			event: 'FIXED',
 			"url": "/api/ytplay",
 			"name": "YtPlay"
 		},
@@ -61,7 +60,6 @@ item_list = [{
 			"name": "Pinterest"
 		},
 		{
-			event: 'NEW',
 			url: '/docs/top4top',
 			name: 'top4top uploader',
 		},
@@ -451,7 +449,6 @@ item_list = [{
 				name: 'Neko2'
 			},
 			{
-				event: 'NEW',
 				url: '/api/randomImage/cecan',
 				name: 'cecan'
 			},
