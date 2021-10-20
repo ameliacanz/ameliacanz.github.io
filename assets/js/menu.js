@@ -76,12 +76,16 @@ try {
 	}, 10);
 
 	//-- CPU Usage detection
-	fetch("https://hadi-api.herokuapp.com/system/about").then(res=>res.json()).then(res=>{
-		tag_cpu.innerHTML = `${res.memoryUsage.rss}<small>/ 500MB</small>`;
+	let rss_size = "0B";
+	fetch("https://hadi-api.herokuapp.com/system/about",{headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
+		tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
 	});
 	setInterval(function() {
-		fetch("https://hadi-api.herokuapp.com/system/about").then(res=>res.json()).then(res=>{
-			tag_cpu.innerHTML = `${res.memoryUsage.rss}<small>/ 500MB</small>`;
+		fetch("https://hadi-api.herokuapp.com/system/about",{headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
+			if(res.trim()){
+				rss_size = res;
+				tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
+			}else{}
 		});
 	}, 2000);
 
