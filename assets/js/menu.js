@@ -77,11 +77,11 @@ try {
 
 	//-- CPU Usage detection
 	let rss_size = "0B";
-	fetch("https://hadi-api.herokuapp.com/system/about",{headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
+	fetch("https://hadi-api.herokuapp.com/system/about",{method: 'get',headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
 		tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
 	});
 	setInterval(function() {
-		fetch("https://hadi-api.herokuapp.com/system/about",{headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
+		fetch("https://hadi-api.herokuapp.com/system/about",{method: 'get',headers: {rss: rss_size}}).then(res=>res.text()).then(res=>{
 			if(res.trim()){
 				rss_size = res;
 				tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
