@@ -2,34 +2,35 @@ try {
 	//-- tag html control
 	item_fc = document.querySelector('[data-widget=treeview]');
 	item_msg = document.querySelector('#notify');
-	tag_pengunjung = document.querySelector('span#pengunjung_length');
-	tag_cpu = document.querySelector('span#cpu_usage');
-	tag_clock = document.querySelector('span#clock');
-	tag_battery_status = document.querySelector('small#battery_status');
-	tag_battery_level = document.querySelector('span#battery_level');
-	tag_netinfo = document.querySelector('#informationnet');
-	//popup request menu
-	function requestmenu() {
-		var Toast = Swal.mixin({
-			showClass: {
-				popup: 'animate__bounceInRight'
-			},
-			hideClass: {
-				popup: 'animate__bounceOutRight'
-			},
-			toast: true,
-			position: 'top-end',
-			showConfirmButton: false,
-			timer: 3500,
-			timerProgressBar: true
-		})
+	if (isDocs == undefined) {
+		tag_pengunjung = document.querySelector('span#pengunjung_length');
+		tag_cpu = document.querySelector('span#cpu_usage');
+		tag_clock = document.querySelector('span#clock');
+		tag_battery_status = document.querySelector('small#battery_status');
+		tag_battery_level = document.querySelector('span#battery_level');
+		tag_netinfo = document.querySelector('#informationnet');
+		//popup request menu
+		function requestmenu() {
+			var Toast = Swal.mixin({
+				showClass: {
+					popup: 'animate__bounceInRight'
+				},
+				hideClass: {
+					popup: 'animate__bounceOutRight'
+				},
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 3500,
+				timerProgressBar: true
+			})
 
-		Toast.fire({
-			icon: 'info',
-			title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
-		})
+			Toast.fire({
+				icon: 'info',
+				title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
+			})
+		}
 	}
-
 	//-- Auto autocapitalize
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -68,42 +69,43 @@ try {
 		item_fc.innerHTML += coder.replace('%item$', item_coder);
 	}
 
-	//-- Browser information
-	information = document.querySelector('#information');
-	repeatinfo = setInterval(function() {
-		information.innerHTML = `<b>Browser CodeName:</b> ${navigator.appCodeName}<br><b>Browser Name:</b> ${navigator.appName}<br><b>Cookies Enabled:</b> ${navigator.cookieEnabled}<br><b>Browser Online:</b> ${navigator.onLine}<br><b>Platform:</b> ${navigator.platform} <br>
-		<b>User-Agent:</b> ${navigator.userAgent} <br><b>Time: </b> ${new Date()}`;
-	}, 10);
+	if (isDocs == undefined) {
+		//-- Browser information
+		information = document.querySelector('#information');
+		repeatinfo = setInterval(function() {
+			information.innerHTML = `<b>Browser CodeName:</b> ${navigator.appCodeName}<br><b>Browser Name:</b> ${navigator.appName}<br><b>Cookies Enabled:</b> ${navigator.cookieEnabled}<br><b>Browser Online:</b> ${navigator.onLine}<br><b>Platform:</b> ${navigator.platform} <br>
+			<b>User-Agent:</b> ${navigator.userAgent} <br><b>Time: </b> ${new Date()}`;
+		}, 10);
 
-	//-- CPU Usage detection
-	let rss_size = "0B";
-	fetch("https://hadi-api.herokuapp.com/system/about?rss="+encodeURIComponent(rss_size)).then(res=>res.text()).then(res=>{
-		rss_size = res;
-		tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
-	});
-	setInterval(function() {
-		fetch("https://hadi-api.herokuapp.com/system/about?rss="+encodeURIComponent(rss_size)).then(res=>res.text()).then(res=>{
-			if(res.trim()){
-				rss_size = res;
-				tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
-			}else{}
+		//-- CPU Usage detection
+		let rss_size = "0B";
+		fetch("https://hadi-api.herokuapp.com/system/about?rss="+encodeURIComponent(rss_size)).then(res=>res.text()).then(res=> {
+			rss_size = res;
+			tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
 		});
-	}, 2000);
-
-	//-- pengunjung visitor length
-	if (localStorage.getItem('Pengunjung')) {
 		setInterval(function() {
-			fetch("https://api.countapi.xyz/get/hadi-api-viewer/").then(res=>res.json()).then(res=> {
+			fetch("https://hadi-api.herokuapp.com/system/about?rss="+encodeURIComponent(rss_size)).then(res=>res.text()).then(res=> {
+				if (res.trim()) {
+					rss_size = res;
+					tag_cpu.innerHTML = `${res}<small>/ 500MB</small>`;
+				} else {}
+			});
+		}, 2000);
+
+		//-- pengunjung visitor length
+		if (localStorage.getItem('Pengunjung')) {
+			setInterval(function() {
+				fetch("https://api.countapi.xyz/get/hadi-api-viewer/").then(res=>res.json()).then(res=> {
+					tag_pengunjung.innerHTML = res.value+" <small>perangkat</small>";
+				});
+			}, 2500);
+		} else {
+			fetch("https://api.countapi.xyz/hit/hadi-api-viewer/").then(res=>res.json()).then(res=> {
+				localStorage.setItem('Pengunjung', 'true');
 				tag_pengunjung.innerHTML = res.value+" <small>perangkat</small>";
 			});
-		}, 2500);
-	} else {
-		fetch("https://api.countapi.xyz/hit/hadi-api-viewer/").then(res=>res.json()).then(res=> {
-			localStorage.setItem('Pengunjung', 'true');
-			tag_pengunjung.innerHTML = res.value+" <small>perangkat</small>";
-		});
+		}
 	}
-
 	//-- time set live
 	function time(time) {
 		time2 = new Date().getTime();
@@ -161,126 +163,127 @@ try {
 	timingeval += `},10);`;
 
 	eval(timingeval);
-
-	//-- clock
-	function duo(s) {
-		return s < 10 ? "0"+s: s;
-	}
-	function oud(s) {
-		return s < 10 ? s+"0": s;
-	}
-
-	setInterval(function() {
-
-		jam = duo(new Date().getHours());
-		menit = duo(new Date().getMinutes());
-		detik = duo(new Date().getSeconds());
-
-		if (jam >= 19) {
-			clock_string = 'malam';
-		} else if (jam >= 18) {
-			clock_string = 'petang';
-		} else if (jam >= 15) {
-			clock_string = 'Sore';
-		} else if (jam >= 10) {
-			clock_string = 'Siang';
-		} else if (jam >= 5) {
-			clock_string = 'Pagi';
-		} else if (jam >= 3) {
-			clock_string = 'subuh';
-		} else if (jam >= 0) {
-			clock_string = 'dini hari';
-		} else {
-			clock_string = 'hai bang';
+	if (isDocs == undefined) {
+		//-- clock
+		function duo(s) {
+			return s < 10 ? "0"+s: s;
+		}
+		function oud(s) {
+			return s < 10 ? s+"0": s;
 		}
 
-		tag_clock.innerHTML = `${jam}:${menit}:${detik} <small>${clock_string}</small>`;
-	},
-		10);
+		setInterval(function() {
 
-	//-- Battery
-	setInterval(function() {
-		navigator.getBattery().then(battery=> {
-			battery_level = String(battery.level).split('.')[1];
-			tag_battery_level.innerHTML = `${(battery_level.length <= 1)? oud(Number(battery_level)): battery_level}% <small>${battery.charging ? 'charging': 'discharging'}</small>`;
-		});
-	},
-		10);
+			jam = duo(new Date().getHours());
+			menit = duo(new Date().getMinutes());
+			detik = duo(new Date().getSeconds());
 
-	//-- network information
-	let region = navigator.language;
-	let isVPN = false;
-	function net() {
-		fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=> {
-			res = res.result;
-			if(!region.includes(res.countryCode)) isVPN = true;
-			tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${region.includes(res.countryCode) ? "false":"true"}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGITUDE: </b>${res.longitude}`;
-		});
-	}
-	net();
-	try {
-		console.log(nomusic);
-	}catch(e) {
-		swal.fire({
-			title: 'do you want to play your own song from youtube?',
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonText: 'Yes',
-			cancelButtonText: `No`,
-		}).then((result) => {
-
-			if (result.isConfirmed) {
-				swal.fire({
-					title: 'Enter youtube link to play !',
-					input: 'url',
-					inputAttributes: {
-						autocapitalize: 'off',
-						pattern: '^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?.*'
-					},
-					showLoaderOnConfirm: true,
-					confirmButtonText: 'Play it !',
-					showCancelButton: true,
-					preConfirm: (value)=> {
-						if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch\?v=|youtu\.be\/)(.+$)/.test(value)) {
-							Swal.showValidationMessage(
-								`url yang anda masukkan tidak valid`
-							);
-						} else {
-							return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
-								if (resp.status == 200) {
-									var audio = document.createElement('audio');
-									audio.autoplay = "autoplay";
-									audio.src = resp.result.download_audio;
-									audio.onended = function() {
-										Swal.fire({
-											title: 'the music has finished do you want to play it back?',
-											icon: 'warning',
-											showCancelButton: true,
-											confirmButtonText: 'Yes',
-											cancelButtonText: `No`,
-										}).then(answer=> {
-											if (answer.isConfirmed) {
-												document.querySelector('audio').play()
-											}
-										})
-									}
-									document.body.appendChild(audio);
-									requestmenu();
-								} else {
-									Swal.showValidationMessage(
-										`periksa kembali url yang anda masukkan`
-									)
-								}
-							})
-						}
-					}
-				}).then(answer=> {
-					requestmenu();
-				})
+			if (jam >= 19) {
+				clock_string = 'malam';
+			} else if (jam >= 18) {
+				clock_string = 'petang';
+			} else if (jam >= 15) {
+				clock_string = 'Sore';
+			} else if (jam >= 10) {
+				clock_string = 'Siang';
+			} else if (jam >= 5) {
+				clock_string = 'Pagi';
+			} else if (jam >= 3) {
+				clock_string = 'subuh';
+			} else if (jam >= 0) {
+				clock_string = 'dini hari';
 			} else {
-				requestmenu();
+				clock_string = 'hai bang';
 			}
-		})
+
+			tag_clock.innerHTML = `${jam}:${menit}:${detik} <small>${clock_string}</small>`;
+		},
+			10);
+
+		//-- Battery
+		setInterval(function() {
+			navigator.getBattery().then(battery=> {
+				battery_level = String(battery.level).split('.')[1];
+				tag_battery_level.innerHTML = `${(battery_level.length <= 1)? oud(Number(battery_level)): battery_level}% <small>${battery.charging ? 'charging': 'discharging'}</small>`;
+			});
+		},
+			10);
+
+		//-- network information
+		let region = navigator.language;
+		let isVPN = false;
+		function net() {
+			fetch('https://hadi-api.herokuapp.com/api/ip').then(res=>res.json()).then(res=> {
+				res = res.result;
+				if (!region.includes(res.countryCode)) isVPN = true;
+				tag_netinfo.innerHTML = `<b>IP: </b>${res.ip}<br><b>ISP: </b>${res.isp}<br><b>CITY: </b>${res.city}<br><b>DISTRICT: </b>${res.district}<br><b>TIMEZONE: </b>${res.timezone}<br><b>COUNTRY: </b>${res.country}<br><b>VPN: </b>${region.includes(res.countryCode) ? "false": "true"}<br><b>LATITUDE: </b>${res.latitude}<br><b>LONGITUDE: </b>${res.longitude}`;
+			});
+		}
+		net();
+		try {
+			console.log(nomusic);
+		}catch(e) {
+			swal.fire({
+				title: 'do you want to play your own song from youtube?',
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes',
+				cancelButtonText: `No`,
+			}).then((result) => {
+
+				if (result.isConfirmed) {
+					swal.fire({
+						title: 'Enter youtube link to play !',
+						input: 'url',
+						inputAttributes: {
+							autocapitalize: 'off',
+							pattern: '^https?:\/\/(www.)?(youtu.be\/)?(youtube.com\/watch)?.*'
+						},
+						showLoaderOnConfirm: true,
+						confirmButtonText: 'Play it !',
+						showCancelButton: true,
+						preConfirm: (value)=> {
+							if (!/^https?\:\/\/(www\.|m\.)?(youtube\.com\/watch\?v=|youtu\.be\/)(.+$)/.test(value)) {
+								Swal.showValidationMessage(
+									`url yang anda masukkan tidak valid`
+								);
+							} else {
+								return fetch('https://hadi-api.herokuapp.com/api/yt2/audio?url='+value).then(resp=>resp.json()).then(resp=> {
+									if (resp.status == 200) {
+										var audio = document.createElement('audio');
+										audio.autoplay = "autoplay";
+										audio.src = resp.result.download_audio;
+										audio.onended = function() {
+											Swal.fire({
+												title: 'the music has finished do you want to play it back?',
+												icon: 'warning',
+												showCancelButton: true,
+												confirmButtonText: 'Yes',
+												cancelButtonText: `No`,
+											}).then(answer=> {
+												if (answer.isConfirmed) {
+													document.querySelector('audio').play()
+												}
+											})
+										}
+										document.body.appendChild(audio);
+										requestmenu();
+									} else {
+										Swal.showValidationMessage(
+											`periksa kembali url yang anda masukkan`
+										)
+									}
+								})
+							}
+						}
+					}).then(answer=> {
+						requestmenu();
+					})
+				} else {
+					requestmenu();
+				}
+			})
+		}
 	}
 }catch(e) {
 	console.log("pass")
