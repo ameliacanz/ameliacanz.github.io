@@ -506,6 +506,7 @@ item_list = [{
 				name: 'Welcome2'
 			},
 			{
+				event: 'NEW',
 				url: '/api/card/welcome3',
 				name: 'Welcome3'
 			},
@@ -518,6 +519,7 @@ item_list = [{
 				name: 'Goodbye2'
 			},
 			{
+				event: 'NEW',
 				url: '/api/card/goodbye3',
 				name: 'Goodbye3'
 			},
