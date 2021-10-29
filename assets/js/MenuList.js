@@ -68,6 +68,7 @@ item_list = [{
 			"name": "google result search"
 		},
 		{
+			event: 'NEW',
 			"url": "/api/nhentai",
 			"name": "nhentai pdf downloader"
 		},
@@ -532,7 +533,6 @@ item_list = [{
 	{
 		name: 'Converter',
 		icon: 'fad fa-toolbox',
-		event: 'NEW',
 		item: [{
 			url: '/docs/converter#jpeg-to-webp',
 			name: 'jpeg to webp'
