@@ -68,6 +68,10 @@ item_list = [{
 			"name": "google result search"
 		},
 		{
+			"url": "/api/nhentai",
+			"name": "nhentai pdf downloader"
+		},
+		{
 			"url": "/api/githubstalk",
 			"name": "Github stalk"
 		}]
