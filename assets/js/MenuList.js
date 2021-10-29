@@ -506,12 +506,20 @@ item_list = [{
 				name: 'Welcome2'
 			},
 			{
+				url: '/api/card/welcome3',
+				name: 'Welcome3'
+			},
+			{
 				url: '/api/card/goodbye',
 				name: 'Goodbye'
 			},
 			{
 				url: '/api/card/goodbye2',
 				name: 'Goodbye2'
+			},
+			{
+				url: '/api/card/goodbye3',
+				name: 'Goodbye3'
 			},
 			{
 				url: '/api/card/verify',
