@@ -31,7 +31,7 @@ try {
 			region = region.split("-")[0].toLowerCase();
 		}catch(e){}
 		if(/id|indonesia/.test(region)&&date.getMonth()==10&&date.getDate()==10){
-			tks = `<p style="color: red;background: gray;">selamat ha<span style="color: white;">ri pahlawan</span></p>`;
+			tks = `<p style="color: red;background: rgba(128,128,128,0.3);">selamat ha<span style="color: white;">ri pahlawan</span></p><div style="border:1px solid black;background:red;display:block;color:red;">.</div><div style="border:1px solid black;border-top:none;background:white;display:block;color:white;">.</div>`;
 		}else{
 			tks = `<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>`;
 		}
