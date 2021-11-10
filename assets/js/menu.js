@@ -24,11 +24,23 @@ try {
 				timer: 3500,
 				timerProgressBar: true
 			})
-
+		let tks = "",
+		region = navigator.language.toLowerCase(),
+		region_ori = "indonesia",
+		date = new Date();
+		try{
+			region = region.split("-")[0].toLowerCase();
+		}catch(e){}
+		if(region_ori.includes(region)&&date.getMonth()==10&&date.getDate()==10){
+			tks = `<p style="color: red;">selamat ha<p style="color: white;">ri pahlawan</p></p>`;
+		}else{
+			tks = `<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>`;
+		}
+		
 			Toast.fire({
 				icon: 'info',
-				title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
-			})
+				title: tks
+			});
 		}
 	}
 	//-- Auto autocapitalize
