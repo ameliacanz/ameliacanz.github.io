@@ -14,7 +14,7 @@ try {
 		function iklan(){
 			if(iklanPending){
 				iklanPending = false;
-		fetch('https://hadi-api.herokuapp.com/iklan/fikri_am').then(resp=>resp.json).then(resp=>{
+		fetch('https://hadi-api.herokuapp.com/iklan/fikri_am').then(resp=>resp.json()).then(resp=>{
 			document.querySelector('#iklan_body').innerHTML = `<a style="color: white;" href="https://m.youtube.com/watch?v=${RegExp("/vi/(.*?)/").exec(resp.thumbnail)[1]}"><img alt="Subscribe Fikri Am" style="max-width: 100%" src="${resp.thumbnail}">
 												<br>
 												${resp.title}<br>
