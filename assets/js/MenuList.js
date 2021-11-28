@@ -68,7 +68,7 @@ item_list = [{
 			"name": "google result search"
 		},
 		{
-			event: 'NEW',
+			$1
 			"url": "/api/nhentai",
 			"name": "nhentai pdf downloader"
 		},
@@ -454,6 +454,10 @@ item_list = [{
 				name: 'cecan'
 			},
 			{
+				url: '/api/randomImage/img/megumin',
+				name: 'megumin'
+			},
+			{
 				url: '/api/loli',
 				name: 'Loli'
 			},
@@ -506,7 +510,7 @@ item_list = [{
 				name: 'Welcome2'
 			},
 			{
-				event: 'NEW',
+
 				url: '/api/card/welcome3',
 				name: 'Welcome3'
 			},
@@ -519,7 +523,7 @@ item_list = [{
 				name: 'Goodbye2'
 			},
 			{
-				event: 'NEW',
+
 				url: '/api/card/goodbye3',
 				name: 'Goodbye3'
 			},
