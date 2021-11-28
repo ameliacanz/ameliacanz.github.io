@@ -453,6 +453,7 @@ item_list = [{
 				name: 'cecan'
 			},
 			{
+				event: 'NEW',
 				url: '/api/randomImage/img/megumin',
 				name: 'megumin'
 			},
