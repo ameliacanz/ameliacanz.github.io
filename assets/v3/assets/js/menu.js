@@ -27,7 +27,7 @@ try {
 
 		Toast.fire({
 			icon: 'info',
-			title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/628990911211?text=assalamualaikum bang mau request menu">owner.</a></p>'
+			title: '<p style="color: gray;">ingin request menu chat <a style="color: blue;" href="https://wa.me/6281315995628?text=assalamualaikum bang">owner.</a></p>'
 		})
 	}
 
