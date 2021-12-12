@@ -3,10 +3,10 @@
   'use strict'
 
   setTimeout(function () {
-    if (window.___browserSync___ === undefined && Number(localStorage.getItem('Hadi-Api:Dashboard')) < Date.now()) {
-      localStorage.setItem('Hadi-Api:Dashboard', (Date.now()) + (15 * 60 * 1000))
+    if (window.___browserSync___ === undefined && Number(localStorage.getItem('IqbalzzX - Api:Dashboard')) < Date.now()) {
+      localStorage.setItem('IqbalzzX - Api:Dashboard', (Date.now()) + (15 * 60 * 1000))
       // eslint-disable-next-line no-alert
-      console.log('HTML BY muhammad hadi firmansya\nThank To AdminLTE')
+      console.log('HTML BY IqbalzzX\nThank To Hadi')
       //alert('You load AdminLTE\'s "demo.js", \nthis file is only created for testing purposes!')
     }
   }, 1000)
