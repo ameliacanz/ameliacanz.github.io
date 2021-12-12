@@ -1,0 +1,59 @@
+<html><meta charset='UTF-8'/><meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/><meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script><link href="https://kamu.likeadream.repl.co/style.css" rel="stylesheet" type="text/css" /><script src="https://kamu.likeadream.repl.co/script.js"></script>
+<head>
+<!-- 
+This code was made by Rayya R
+Blog: https://sinkronin.com
+Instagram: rayyarrr
+TikTok: rayyarr_
+Telegram: @rayyarr
+-->
+</head>
+
+<body>
+<style>
+body{background-image:url("https://i.postimg.cc/HnNw5gYf/IMG-20211202-054119-150.jpg");background-repeat: no-repeat;animation:none;background-size: 100% 100%;}
+</style>
+
+<div id='Content'>
+<div class="foto"><div class="image">
+<!-- Foto Atas --><img src="https://i.postimg.cc/k49fXqGs/341933140ff47e5a48f1de0b5af7e200.gif" width="100px" height="100px"/></div><p id="textnama"></p></div>
+
+<div id='pergeseran'>
+<p><i>Geser yaa &#128073;</i></p>
+<p>Haloooo &#129395;</p>
+<p>Aku mau bilang sesuatu boleh ga?</p>
+<p>Jadi tuh gini</p>
+<p>Kamu mau gak jadi pacar aku?</p>
+<p>Atau kalo enggak</p>
+<p>Aku aja yang jadi pacar kamu :v</p>
+<p>Eits, canda. Ga maksa ko</p>
+<p>Terserah kamu mau apa engga ツ</p>
+<p>&#128073; <a id="tm" onClick='pmau();'>[ Mau ]</a><a id="tm" onClick='pgakmau();'>[ Gak mau ]</a></p>
+</div>
+</div>
+
+<script>
+  //Audio Link MP3
+  function play() {var audio = new Audio('https://hei.likeadream.repl.co/kopet.mp3');audio.play();audio.loop=true;audio.addEventListener('ended', function() {this.currentTime = 0;this.play();}, false);}         
+  //Pembuka
+  var a=0,textnm;textnm = 
+  "Untukmu <3"
+
+const swals = Swal.mixin({allowOutsideClick: false,});
+
+async function pmau(){
+await swals.fire('Yeayyy!!!');
+await swals.fire('Kirim ini ke no WhatsApp aku, oke?');
+window.location = "https://api.whatsapp.com/send?phone=6281315995628&text=Hai, Aku udah liat semuanya" + "%0A%0A" + "Aku mau kok jadi pacar kamu><";}
+
+async function pgakmau(){
+await swals.fire('Yaudah deh :(');}
+
+async function start() {await swals.fire('Halo ツ');setTimeout(mulai, 900);play();}
+start();
+</script>
+
+</body>
+</html>
