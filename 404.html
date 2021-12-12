@@ -80,7 +80,7 @@
 	<script type="text/javascript" charset="utf-8">
 	if(/x11|win64|intel|windows/i.test(navigator.userAgent.toLowerCase())) {
 		a.querySelector('body').style.background = "white";
-		a.querySelector('body').innerHTML = "<p style='color: black;font-size: 2rem'>{<br><tab></tab>creator: 'muhammad hadi firmansya',<br><tab></tab>status: 404,<br><tab></tab>msg: '[!] 404 not found<br>template html tidak tersedia pada perangkat anda'<br>}</p>";
+		a.querySelector('body').innerHTML = "<p style='color: black;font-size: 2rem'>{<br><tab></tab>creator: 'IqbalzzX',<br><tab></tab>status: 404,<br><tab></tab>msg: '[!] 404 not found<br>template html tidak tersedia pada perangkat anda'<br>}</p>";
 		
 	} else{
 		function duo(s){
@@ -99,7 +99,7 @@
 		source = a.querySelector('a#source')
 		list = ["https://youtu.be/Ngq0omaP8Xg","https://youtu.be/Ew7I1C75rVw","https://youtu.be/KrT9pd6bVR4"];
 		random = list[Math.floor(Math.random() * list.length)]
-		fetch("https://hadi-api.herokuapp.com/api/yt2/video?url="+random).then(res=>res.json()).then(res=> {
+		fetch("https://ameliacanz.herokuapp.com/api/yt2/video?url="+random).then(res=>res.json()).then(res=> {
 			video.setAttribute("src", res.result.download_video || "Null");
 			video.setAttribute("poster",res.result.thumb)
 			source.setAttribute('href',random)
@@ -152,8 +152,8 @@
 		}
 
 		jalan(true, 'run1',
-			`{[<br><tab></tab>]creator: 'muhammad hadi firmansya',[<br><tab></tab>]	status: 404,[<br><tab></tab>]	msg: '[[!]] 404 not found'[<br>]}`, 70, 100)
-		jalan(true, 'run2', `[<tab></tab>]silahkan kembali ke dokumentasi api click [<a href='https://hadi-api.herokuapp.com/api'>here</a>]`, 50)
+			`{[<br><tab></tab>]creator: 'IqbalzzX',[<br><tab></tab>]	status: 404,[<br><tab></tab>]	msg: '[[!]] 404 not found'[<br>]}`, 70, 100)
+		jalan(true, 'run2', `[<tab></tab>]silahkan kembali ke dokumentasi api click [<a href='https://ameliacanz.herokuapp.com/api'>here</a>]`, 50)
 	}
 	</script>
 </body>
