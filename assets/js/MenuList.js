@@ -1,10 +1,10 @@
 message_list = [{
 	icon: 'fas fa-file-code',
-	title: 'Template Recode by m hadi f',
+	title: 'Template Recode By IqbalzzX',
 	timing: '1630143780561'
 }, {
 	icon: 'fal fa-industry-alt',
-	title: 'Template by AdminLTE',
+	title: 'Template By Hadi',
 	timing: ''
 }, {
 	icon: 'fab fa-font-awesome-flag',
@@ -678,7 +678,7 @@ item_list = [{
 		icon: 'fas fa-user-headset',
 		item: [{
 			event: 'DO NOT SPAM',
-			url: 'https://wa.me/628990911211',
+			url: 'https://wa.me/6281315995628',
 			name: 'Whatsapp'
 		}]
 	}];
